@@ -14,6 +14,20 @@
 		9A2616A12A330401007FF28A /* AR_Ease_SwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2616A02A330401007FF28A /* AR_Ease_SwiftUITests.swift */; };
 		9A2616AB2A330401007FF28A /* AR_Ease_SwiftUIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2616AA2A330401007FF28A /* AR_Ease_SwiftUIUITests.swift */; };
 		9A2616AD2A330401007FF28A /* AR_Ease_SwiftUIUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2616AC2A330401007FF28A /* AR_Ease_SwiftUIUITestsLaunchTests.swift */; };
+		9A2616BA2A3304FE007FF28A /* DataFollowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2616B92A3304FE007FF28A /* DataFollowView.swift */; };
+		9A2616BC2A330514007FF28A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2616BB2A330514007FF28A /* HomeView.swift */; };
+		9A2616BE2A330541007FF28A /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2616BD2A330541007FF28A /* SettingView.swift */; };
+		9A2616C22A364E58007FF28A /* SuggestClassCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2616C12A364E58007FF28A /* SuggestClassCard.swift */; };
+		9A2616C42A36D6B3007FF28A /* ViewControllerCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2616C32A36D6B3007FF28A /* ViewControllerCameraView.swift */; };
+		9A2616C62A36D6CA007FF28A /* VideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2616C52A36D6CA007FF28A /* VideoCapture.swift */; };
+		9A2616C82A36D6D2007FF28A /* PosePredictor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2616C72A36D6D2007FF28A /* PosePredictor.swift */; };
+		9A2616CA2A36E3E0007FF28A /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2616C92A36E3E0007FF28A /* TutorialView.swift */; };
+		9A2616CC2A37163E007FF28A /* GenSenRounded-M.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 9A2616CB2A37163E007FF28A /* GenSenRounded-M.ttc */; };
+		9A2616CE2A37164E007FF28A /* GenSenRounded-R.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 9A2616CD2A37164E007FF28A /* GenSenRounded-R.ttc */; };
+		9A2616D02A371657007FF28A /* GenSenRounded-B.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 9A2616CF2A371657007FF28A /* GenSenRounded-B.ttc */; };
+		9A2616D32A371B3C007FF28A /* CountDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2616D22A371B3C007FF28A /* CountDownView.swift */; };
+		9A2616D52A3758ED007FF28A /* ChoosePartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2616D42A3758ED007FF28A /* ChoosePartView.swift */; };
+		9A2616D72A375E68007FF28A /* PersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2616D62A375E68007FF28A /* PersonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +58,21 @@
 		9A2616A62A330401007FF28A /* AR_Ease_SwiftUIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AR_Ease_SwiftUIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A2616AA2A330401007FF28A /* AR_Ease_SwiftUIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AR_Ease_SwiftUIUITests.swift; sourceTree = "<group>"; };
 		9A2616AC2A330401007FF28A /* AR_Ease_SwiftUIUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AR_Ease_SwiftUIUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9A2616B92A3304FE007FF28A /* DataFollowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFollowView.swift; sourceTree = "<group>"; };
+		9A2616BB2A330514007FF28A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		9A2616BD2A330541007FF28A /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		9A2616C12A364E58007FF28A /* SuggestClassCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestClassCard.swift; sourceTree = "<group>"; };
+		9A2616C32A36D6B3007FF28A /* ViewControllerCameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerCameraView.swift; sourceTree = "<group>"; };
+		9A2616C52A36D6CA007FF28A /* VideoCapture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCapture.swift; sourceTree = "<group>"; };
+		9A2616C72A36D6D2007FF28A /* PosePredictor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PosePredictor.swift; sourceTree = "<group>"; };
+		9A2616C92A36E3E0007FF28A /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
+		9A2616CB2A37163E007FF28A /* GenSenRounded-M.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GenSenRounded-M.ttc"; sourceTree = "<group>"; };
+		9A2616CD2A37164E007FF28A /* GenSenRounded-R.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GenSenRounded-R.ttc"; sourceTree = "<group>"; };
+		9A2616CF2A371657007FF28A /* GenSenRounded-B.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GenSenRounded-B.ttc"; sourceTree = "<group>"; };
+		9A2616D12A37170C007FF28A /* AR-Ease-SwiftUI-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "AR-Ease-SwiftUI-Info.plist"; sourceTree = SOURCE_ROOT; };
+		9A2616D22A371B3C007FF28A /* CountDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountDownView.swift; sourceTree = "<group>"; };
+		9A2616D42A3758ED007FF28A /* ChoosePartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePartView.swift; sourceTree = "<group>"; };
+		9A2616D62A375E68007FF28A /* PersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,9 +123,24 @@
 		9A26168E2A330400007FF28A /* AR_Ease_SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				9A2616D12A37170C007FF28A /* AR-Ease-SwiftUI-Info.plist */,
 				9A26168F2A330400007FF28A /* AR_Ease_SwiftUIApp.swift */,
 				9A2616912A330400007FF28A /* ContentView.swift */,
+				9A2616C12A364E58007FF28A /* SuggestClassCard.swift */,
+				9A2616B92A3304FE007FF28A /* DataFollowView.swift */,
+				9A2616BB2A330514007FF28A /* HomeView.swift */,
+				9A2616D62A375E68007FF28A /* PersonView.swift */,
+				9A2616D42A3758ED007FF28A /* ChoosePartView.swift */,
+				9A2616C92A36E3E0007FF28A /* TutorialView.swift */,
+				9A2616D22A371B3C007FF28A /* CountDownView.swift */,
+				9A2616BD2A330541007FF28A /* SettingView.swift */,
+				9A2616C32A36D6B3007FF28A /* ViewControllerCameraView.swift */,
+				9A2616C52A36D6CA007FF28A /* VideoCapture.swift */,
+				9A2616C72A36D6D2007FF28A /* PosePredictor.swift */,
 				9A2616932A330401007FF28A /* Assets.xcassets */,
+				9A2616CD2A37164E007FF28A /* GenSenRounded-R.ttc */,
+				9A2616CB2A37163E007FF28A /* GenSenRounded-M.ttc */,
+				9A2616CF2A371657007FF28A /* GenSenRounded-B.ttc */,
 				9A2616952A330401007FF28A /* Preview Content */,
 			);
 			path = AR_Ease_SwiftUI;
@@ -231,6 +275,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A2616CE2A37164E007FF28A /* GenSenRounded-R.ttc in Resources */,
+				9A2616D02A371657007FF28A /* GenSenRounded-B.ttc in Resources */,
+				9A2616CC2A37163E007FF28A /* GenSenRounded-M.ttc in Resources */,
 				9A2616972A330401007FF28A /* Preview Assets.xcassets in Resources */,
 				9A2616942A330401007FF28A /* Assets.xcassets in Resources */,
 			);
@@ -257,8 +304,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A2616C82A36D6D2007FF28A /* PosePredictor.swift in Sources */,
+				9A2616C62A36D6CA007FF28A /* VideoCapture.swift in Sources */,
+				9A2616BA2A3304FE007FF28A /* DataFollowView.swift in Sources */,
+				9A2616C22A364E58007FF28A /* SuggestClassCard.swift in Sources */,
+				9A2616BE2A330541007FF28A /* SettingView.swift in Sources */,
+				9A2616BC2A330514007FF28A /* HomeView.swift in Sources */,
+				9A2616D52A3758ED007FF28A /* ChoosePartView.swift in Sources */,
+				9A2616C42A36D6B3007FF28A /* ViewControllerCameraView.swift in Sources */,
 				9A2616922A330400007FF28A /* ContentView.swift in Sources */,
+				9A2616D72A375E68007FF28A /* PersonView.swift in Sources */,
+				9A2616CA2A36E3E0007FF28A /* TutorialView.swift in Sources */,
 				9A2616902A330400007FF28A /* AR_Ease_SwiftUIApp.swift in Sources */,
+				9A2616D32A371B3C007FF28A /* CountDownView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,11 +478,14 @@
 				DEVELOPMENT_TEAM = 4QP64UP44Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "AR-Ease-SwiftUI-Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "允許使用相機功能";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -449,11 +510,14 @@
 				DEVELOPMENT_TEAM = 4QP64UP44Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "AR-Ease-SwiftUI-Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "允許使用相機功能";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

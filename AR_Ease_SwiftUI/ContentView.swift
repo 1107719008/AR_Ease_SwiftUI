@@ -8,19 +8,77 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+    
+    @State var selection = 1
+
+    //init the tab bar bg
+    init() {
+            let appearance = UITabBarAppearance()
+           
+            appearance.configureWithTransparentBackground()
+        
+            let backgroundImageInsets = UIEdgeInsets(top: -5, left: 0, bottom: 0, right: 0)
+            appearance.backgroundImage = UIImage(named: "tabBarShadow")?.resizableImage(withCapInsets: backgroundImageInsets)
+            let tabBar = UITabBar.appearance()
+            tabBar.standardAppearance = appearance
+            tabBar.scrollEdgeAppearance = appearance
         }
-        .padding()
+    
+    var body: some View {
+            HStack{
+                    //tab view
+                    TabView(selection: $selection){
+                        
+                        DataFollowView()
+                            .tabItem {
+                                if selection == 0{
+                                    Text("")
+                                    Image("Record_press")
+                                }else{
+                                    Text("")
+                                    Image("Record_unpress")
+                                }
+                            }.tag(0)
+                        
+                        HomeView()
+                            .tabItem {
+                                if selection == 1{
+                                    Text("")
+                                    Image("Home_press")
+                                    
+                                }else{
+                                    Text("")
+                                    Image("Home_unpress")
+                                }
+                                
+                            }.tag(1)
+                        
+                        SettingView()
+                            .tabItem{
+                                if selection == 2{
+                                    Text("")
+                                    Image("Setting_press")
+                                }else{
+                                    Text("")
+                                    Image("Setting_unpress")
+                                }
+                            }.tag(2)
+                    }
+                }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+    }
+}
+
+extension UITabBarController {
+    open override func viewWillLayoutSubviews() {
+        let array = self.viewControllers
+        for controller in array! {
+            controller.tabBarItem.imageInsets = UIEdgeInsets(top: 8, left: 0, bottom: -24, right: 0)
+        }
     }
 }
