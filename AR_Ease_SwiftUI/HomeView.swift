@@ -15,42 +15,29 @@ struct HomeView: View {
             
         NavigationView{
             ScrollView{
-                VStack{
-                    PersonView()
+                ZStack {
+                    Color.white
+                        .ignoresSafeArea()
+                    VStack{
+                        PersonView()
+                        
+                        NavigationLink(destination: ChoosePartView()){
+                            Image("Circle_GoChosenBTN").resizable().frame(width:60,height: 60)
+                                
+                        }.offset(x:155,y:-45)
+                        
+                        
+                    SuggestClassCard()
+                    }//stack end
                     
-                    NavigationLink(destination: ChoosePartView()){
-                        Image("Circle_GoChosenBTN").resizable().frame(width:60,height: 60)
-                    }
                     
-                }//stack end
-                
-                
-            }.toolbar{
-                ToolbarItem(placement: .navigationBarLeading){
-                    Button(action: {
-                        
-                    }, label: {
-                        Text("L Icon")//.position(x:30,y:10)
-                        
-                    })}
-//                ToolbarItem(placement: .principal) {
-//                    Text("Ease 小意思")
-//                        .font(.custom("GenSenRoundedTW-B", size:28))
-//                        .foregroundColor(.black)
-//                        //.offset(y:30)
-//
-//                }
-                ToolbarItem(placement: .navigationBarTrailing){
-                    Button(action: {
-                        
-                    }, label: {
-                        Text("R Icon")//.position(x:15,y:10)
-                        
-                        
-                    })
+                    
                 }
-            }
-        }.accentColor(Color("Black_800"))
+                
+            }.accentColor(Color("Black_800"))
+            
+            
+        }
             
                     
             

@@ -11,10 +11,14 @@ import SwiftUI
 
 
 struct TutorialView: View {
+    //for full screen func
+    @Environment(\.presentationMode) var presentationMode
+    
     var body: some View {
         ZStack{
-            ViewControllerCameraView().ignoresSafeArea()
-
+            ViewControllerCameraView()
+                .edgesIgnoringSafeArea(.all).offset(x:7)
+            
             VStack{
                 
                 HStack{
@@ -30,23 +34,25 @@ struct TutorialView: View {
                         })
                         Text("樹式").rotationEffect(.degrees(90))
                             .font(.custom("GenSenRoundedTW-B", size: 24))
-                            .foregroundColor(Color.black)
+                            .foregroundColor((Color("Black_800")))
                         
                     }.offset(y:-80)
                     
                     
-                }.frame(width: .infinity, height: 230)
+                }//.frame(width: UIScreen.main.bounds.width, height: 200)
+                
                 HStack{
-                   
-                    Image("legCheck_tree").rotationEffect(.degrees(90)).offset(x:-30)
-                    Image("handCheck_tree").rotationEffect(.degrees(90)).offset(x:40)
+                    
+                    //Image("legCheck_tree").rotationEffect(.degrees(90)).offset(x:-30)
+                    //Image("handCheck_tree").rotationEffect(.degrees(90)).offset(x:40)
+                    Text("")
                     
                 }.frame(width: 400, height: 200)
                 Spacer()
                 HStack{
                     Spacer()
                     CountDownView().rotationEffect(.degrees(90)) .allowsHitTesting(false)
-                        .frame(width: 130, height: 120)
+                        .frame(width: 120, height: 120)
                 }
                 
                 HStack{
@@ -58,12 +64,15 @@ struct TutorialView: View {
                 }
                 
                 
-            }
-            
-            
-            
+            }.navigationBarHidden(true)
             
         }
+            .onTapGesture {
+                presentationMode.wrappedValue.dismiss()
+            }
+            .toolbar(.hidden, for: .tabBar)
+        
+        
     }
     
     

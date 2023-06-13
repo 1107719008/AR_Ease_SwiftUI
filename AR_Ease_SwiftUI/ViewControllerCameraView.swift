@@ -65,6 +65,9 @@ class ViewController: UIViewController {
     private func setupVideoPreview(){
         videoCapture.startCaptureSession()
         previewLayer = AVCaptureVideoPreviewLayer(session: videoCapture.captureSession)
+        previewLayer?.videoGravity = .resizeAspectFill//set full screen
+        previewLayer?.frame = UIScreen.main.bounds
+        
         //add video frame
         guard let previewLayer = previewLayer else { return }
         view.layer.addSublayer(previewLayer)

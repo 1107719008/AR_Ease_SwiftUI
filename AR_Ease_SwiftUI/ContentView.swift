@@ -25,46 +25,75 @@ struct ContentView: View {
         }
     
     var body: some View {
+        NavigationView{
             HStack{
-                    //tab view
-                    TabView(selection: $selection){
-                        
-                        DataFollowView()
-                            .tabItem {
-                                if selection == 0{
-                                    Text("")
-                                    Image("Record_press")
-                                }else{
-                                    Text("")
-                                    Image("Record_unpress")
-                                }
-                            }.tag(0)
-                        
-                        HomeView()
-                            .tabItem {
-                                if selection == 1{
-                                    Text("")
-                                    Image("Home_press")
-                                    
-                                }else{
-                                    Text("")
-                                    Image("Home_unpress")
-                                }
+                //tab view
+                TabView(selection: $selection){
+                    
+                    DataFollowView()
+                        .tabItem {
+                            if selection == 0{
+                                Text("")
+                                Image("Record_press")
+                            }else{
+                                Text("")
+                                Image("Record_unpress")
+                            }
+                        }.tag(0)
+                    
+                    HomeView()
+                        .tabItem {
+                            if selection == 1{
+                                Text("")
+                                Image("Home_press")
                                 
-                            }.tag(1)
-                        
-                        SettingView()
-                            .tabItem{
-                                if selection == 2{
-                                    Text("")
-                                    Image("Setting_press")
-                                }else{
-                                    Text("")
-                                    Image("Setting_unpress")
-                                }
-                            }.tag(2)
-                    }
+                            }else{
+                                Text("")
+                                Image("Home_unpress")
+                            }
+                            
+                        }.tag(1)
+                    
+                    SettingView()
+                        .tabItem{
+                            if selection == 2{
+                                Text("")
+                                Image("Setting_press")
+                            }else{
+                                Text("")
+                                Image("Setting_unpress")
+                            }
+                        }.tag(2)
                 }
+                
+            }//hstack end
+            
+            .toolbar{
+                ToolbarItem(placement: .navigationBarLeading){
+                    Button(action: {
+                        
+                    }, label: {
+                        Image("GameIcon").padding(10)
+                        
+                    })
+                    
+                }
+          
+                ToolbarItem(placement: .navigationBarTrailing){
+                    Button(action: {
+                        
+                    }, label: {
+                        Image("MyList").padding(10)
+                        
+                        
+                    })
+                }
+            }
+            
+        }//nav view end
+            
+        
+        
     }
 }
 

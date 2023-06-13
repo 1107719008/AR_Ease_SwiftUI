@@ -36,6 +36,11 @@ class VideoCapture:NSObject{
     }
     
     
+    func stopCaptureSession() {
+        captureSession.stopRunning()
+        videoOutput.setSampleBufferDelegate(nil, queue: nil)
+    }
+    
 }
 extension VideoCapture: AVCaptureVideoDataOutputSampleBufferDelegate{
     

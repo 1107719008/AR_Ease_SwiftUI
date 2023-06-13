@@ -85,12 +85,12 @@ class PosePredictor{
             let recognizedPointLWrist = try observation.recognizedPoint(forKey: .bodyLandmarkKeyLeftWrist)
             //legs
             let recognizedPointRHip = try observation.recognizedPoint(forKey: .bodyLandmarkKeyRightHip)
-            let rerecognizedPointRAnkle = try observation.recognizedPoint(forKey: .bodyLandmarkKeyRightAnkle)
-            let rerecognizedPointRKnee = try observation.recognizedPoint(forKey: .bodyLandmarkKeyRightKnee)
+            let recognizedPointRAnkle = try observation.recognizedPoint(forKey: .bodyLandmarkKeyRightAnkle)
+            let recognizedPointRKnee = try observation.recognizedPoint(forKey: .bodyLandmarkKeyRightKnee)
             //left leg
             let recognizedPointLHip = try observation.recognizedPoint(forKey: .bodyLandmarkKeyLeftHip)
-            let rerecognizedPointLAnkle = try observation.recognizedPoint(forKey: .bodyLandmarkKeyLeftAnkle)
-            let rerecognizedPointLKnee = try observation.recognizedPoint(forKey: .bodyLandmarkKeyLeftKnee)
+            let recognizedPointLAnkle = try observation.recognizedPoint(forKey: .bodyLandmarkKeyLeftAnkle)
+            let recognizedPointLKnee = try observation.recognizedPoint(forKey: .bodyLandmarkKeyLeftKnee)
             
 //            guard recognizedPoints.count >= 2 else {
 //                       print("Insufficient recognized points")
@@ -121,12 +121,38 @@ class PosePredictor{
             let displayedPointLElbow =
                 CGPoint(x: recognizedPointLElbow.x, y: 1-recognizedPointLElbow.y)
             
+            //legs
+            let displayedPointLHip =
+                CGPoint(x: recognizedPointRHip.x, y: 1-recognizedPointLHip.y)
+            let displayedPointLAnkle =
+                CGPoint(x: recognizedPointLAnkle.x, y: 1-recognizedPointLAnkle.y)
+            let displayedPointLKnee =
+                CGPoint(x: recognizedPointLKnee.x, y: 1-recognizedPointLKnee.y)
+            
+            let displayedPointRHip =
+                CGPoint(x: recognizedPointRHip.x, y: 1-recognizedPointRHip.y)
+            let displayedPointRAnkle =
+                CGPoint(x: recognizedPointRAnkle.x, y: 1-recognizedPointRAnkle.y)
+            let displayedPointRKnee =
+                CGPoint(x: recognizedPointRKnee.x, y: 1-recognizedPointRKnee.y)
+            
+
+            
             ShouldRecognizedPoints.append(displayedPointRShoulder)
             ShouldRecognizedPoints.append(displayedPointRElbow)
             ShouldRecognizedPoints.append(displayedPointRWrist)
             ShouldRecognizedPoints.append(displayedPointLShoulder)
             ShouldRecognizedPoints.append(displayedPointLElbow)
             ShouldRecognizedPoints.append(displayedPointLWrist)
+            
+            ShouldRecognizedPoints.append(displayedPointRHip)
+            ShouldRecognizedPoints.append(displayedPointRAnkle)
+            ShouldRecognizedPoints.append(displayedPointRKnee)
+            ShouldRecognizedPoints.append(displayedPointLHip)
+            ShouldRecognizedPoints.append(displayedPointLAnkle)
+            ShouldRecognizedPoints.append(displayedPointLKnee)
+            
+            
             
             let RightHandAngle = calculateAngle(pointA: displayedPointRWrist, pointB: displayedPointRElbow, pointC: displayedPointRShoulder)
             let LeftHandAngle = calculateAngle(pointA: displayedPointLWrist, pointB: displayedPointLElbow, pointC: displayedPointLShoulder)
@@ -137,11 +163,16 @@ class PosePredictor{
                 //checkLegPos = true
                 print("hand ok")
             }else{
-                print("failed")
+                print("hand failed")
             }
             
-            
-            
+            let RightLegAngle = calculateAngle(pointA: displayedPointRHip, pointB: displayedPointRKnee, pointC: displayedPointRAnkle)
+            if RightLegAngle <= 35 && RightLegAngle >= 0 {
+                checkLegPos=true
+                print("leg ok")
+            }else{
+                print("leg failed")
+            }
             
             
             
