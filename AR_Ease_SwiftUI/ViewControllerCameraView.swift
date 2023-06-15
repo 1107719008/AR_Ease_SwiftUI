@@ -5,6 +5,7 @@
 //  Created by 林君翰 on 2023/6/8.
 //
 //this script is for Video function with ui container(最上層的) include -- VideoCapture\PosePredictor etc...
+//this is 樹式 script
 
 import UIKit
 import AVFoundation
@@ -80,6 +81,8 @@ class ViewController: UIViewController {
         view.layer.addSublayer(pointsLayer)
         pointsLayer.frame = view.frame
         pointsLayer.fillColor = UIColor.yellow.cgColor
+        
+        
         
 //        view.layer.addSublayer(specificLayer)
 //        specificLayer.frame = view.frame

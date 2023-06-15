@@ -28,6 +28,8 @@
 		9A2616D32A371B3C007FF28A /* CountDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2616D22A371B3C007FF28A /* CountDownView.swift */; };
 		9A2616D52A3758ED007FF28A /* ChoosePartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2616D42A3758ED007FF28A /* ChoosePartView.swift */; };
 		9A2616D72A375E68007FF28A /* PersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2616D62A375E68007FF28A /* PersonView.swift */; };
+		9AE50F042A3ACDAC004F7F06 /* CalenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE50F032A3ACDAC004F7F06 /* CalenderView.swift */; };
+		9AE50F072A3ADA26004F7F06 /* DateValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE50F062A3ADA26004F7F06 /* DateValue.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,8 @@
 		9A2616D22A371B3C007FF28A /* CountDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountDownView.swift; sourceTree = "<group>"; };
 		9A2616D42A3758ED007FF28A /* ChoosePartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePartView.swift; sourceTree = "<group>"; };
 		9A2616D62A375E68007FF28A /* PersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonView.swift; sourceTree = "<group>"; };
+		9AE50F032A3ACDAC004F7F06 /* CalenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderView.swift; sourceTree = "<group>"; };
+		9AE50F062A3ADA26004F7F06 /* DateValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateValue.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +132,8 @@
 				9A2616912A330400007FF28A /* ContentView.swift */,
 				9A2616C12A364E58007FF28A /* SuggestClassCard.swift */,
 				9A2616B92A3304FE007FF28A /* DataFollowView.swift */,
+				9AE50F052A3ADA05004F7F06 /* Model */,
+				9AE50F032A3ACDAC004F7F06 /* CalenderView.swift */,
 				9A2616BB2A330514007FF28A /* HomeView.swift */,
 				9A2616D62A375E68007FF28A /* PersonView.swift */,
 				9A2616D42A3758ED007FF28A /* ChoosePartView.swift */,
@@ -169,6 +175,14 @@
 				9A2616AC2A330401007FF28A /* AR_Ease_SwiftUIUITestsLaunchTests.swift */,
 			);
 			path = AR_Ease_SwiftUIUITests;
+			sourceTree = "<group>";
+		};
+		9AE50F052A3ADA05004F7F06 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9AE50F062A3ADA26004F7F06 /* DateValue.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -313,7 +327,9 @@
 				9A2616D52A3758ED007FF28A /* ChoosePartView.swift in Sources */,
 				9A2616C42A36D6B3007FF28A /* ViewControllerCameraView.swift in Sources */,
 				9A2616922A330400007FF28A /* ContentView.swift in Sources */,
+				9AE50F072A3ADA26004F7F06 /* DateValue.swift in Sources */,
 				9A2616D72A375E68007FF28A /* PersonView.swift in Sources */,
+				9AE50F042A3ACDAC004F7F06 /* CalenderView.swift in Sources */,
 				9A2616CA2A36E3E0007FF28A /* TutorialView.swift in Sources */,
 				9A2616902A330400007FF28A /* AR_Ease_SwiftUIApp.swift in Sources */,
 				9A2616D32A371B3C007FF28A /* CountDownView.swift in Sources */,
