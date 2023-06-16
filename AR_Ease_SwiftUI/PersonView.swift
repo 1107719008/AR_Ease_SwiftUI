@@ -25,7 +25,7 @@ struct PersonView: View {
                 VStack{
                     Text("舒緩一下吧～")
                         .font(.custom("GenSenRoundedTW-B", size:32))
-                        .foregroundColor(Color("Black_800"))
+                        .foregroundColor(Color("Black_700"))
                         .padding(.bottom, 0.0)
                         .offset(x:-18,y:0)
                     
@@ -83,15 +83,20 @@ struct PersonView: View {
                     }).offset(x:-320).frame(width: 0.0, height: 70.0)
                     
                     Button(action: {
-                        isSelectedCalf.toggle()
+                      
+                            isSelectedCalf.toggle()
+                       
                     }, label: {
                         if isSelectedCalf{
                             Image("CalfFilled")
+                               
                         }else{
                             Image("CalfOutline")
+                                
                         }
                         
                     }).offset(x:-290).frame(width: 0.0, height: 70.0)
+                        
                     
                     
                 }

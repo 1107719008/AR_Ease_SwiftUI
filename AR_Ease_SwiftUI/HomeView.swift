@@ -27,7 +27,9 @@ struct HomeView: View {
                         }.offset(x:155,y:-45)
                         
                         
-                    SuggestClassCard()
+                        SuggestClassCard()
+                            .padding(.top, -25.0)
+                       
                     }//stack end
                     
                     

@@ -16,61 +16,69 @@ struct CalenderView: View {
     var body: some View {
         
         VStack(spacing: 35){
-            Text("This is data-calender page.")
             
-            //days mark
-            let days: [String] = ["一","二","三","四","五","六","日"]
-            HStack(spacing: 20){
-              
-                Button{
-                    withAnimation{
-                        currentMonth -= 1
+            VStack{
+                //days mark
+                let days: [String] = ["一","二","三","四","五","六","日"]
+                
+                HStack(spacing: 20){
+                    
+                    Button{
+                        withAnimation(.easeInOut(duration: 0.3)){
+                            currentMonth -= 1
+                        }
+                    }label: {
+                        Image(systemName: "chevron.left")
+                            .font(.caption).foregroundColor((Color("Black_800")))
                     }
-                }label: {
-                    Image(systemName: "chevron.left")
-                        .font(.title3).foregroundColor((Color("Black_800")))
-                }
-                HStack(spacing: 10){
-                    Text(extraDate()[0])
-                        .font(.caption)
-                        .fontWeight(.semibold)
-                    Text(extraDate()[1])
-                        .font(.caption)
-                        .fontWeight(.semibold)
-                }
-               
-                Button{
-                    withAnimation{
-                        currentMonth -= 1
+                    HStack(spacing: 10){
+                        Text(extraDate()[0])
+                            .font(.custom("GenSenRoundedTW-B", size:12))
+                        
+                        Text(extraDate()[1])
+                            .font(.custom("GenSenRoundedTW-B", size:12))
+                        //.fontWeight(.semibold)
                     }
                     
-                }label: {
-                    Image(systemName: "chevron.right")
-                        .font(.title3).foregroundColor((Color("Black_800")))
+                    Button{
+                        withAnimation{
+                            currentMonth += 1
+                        }
+                        
+                    }label: {
+                        Image(systemName: "chevron.right")
+                            .font(.caption).foregroundColor((Color("Black_800")))
+                    }
+                    
+                }.padding(.all)
+                
+                HStack(spacing: 10){
+                    ForEach(days,id: \.self){day in
+                        
+                        Text(day)
+                        //                        .font(.callout)
+                        //                        .fontWeight(.semibold)
+                            .font(.custom("GenSenRoundedTW-R", size:12))
+                            .frame(maxWidth: .infinity)
+                    }
                 }
                 
-            }.padding(.horizontal)
-            
-            HStack(spacing: 0){
-                ForEach(days,id: \.self){day in
+                
+                //Dates here
+                let columns = Array(repeating: GridItem(.flexible()),count: 7)
+                LazyVGrid(columns: columns,spacing: 15) {
+                    ForEach(extractDate()){value in
+                        CardView(value: value)
+                    }
                     
-                    Text(day)
-                        .font(.callout)
-                        .fontWeight(.semibold)
-                        .frame(maxWidth: .infinity)
                 }
-            }
+            }.background(.white)
+                .padding(.bottom,0)
+                .cornerRadius(10).frame(width: 390)
             
-            //Dates here
-            let columns = Array(repeating: GridItem(.flexible()),count: 7)
-            LazyVGrid(columns: columns,spacing: 15) {
-                ForEach(extractDate()){value in
-                    Text("\(value.day)")
-                        .font(.title3.bold())
-                }
-            
-            }
-            
+            //add calender below object here
+            CalenderBelowView()
+                .padding(.top, 0.0)
             
         }
         .onChange(of: currentMonth){ newValue in
@@ -78,7 +86,25 @@ struct CalenderView: View {
             currentDate = getCurrentMonth()
         }
         
+        
     }
+    
+    @ViewBuilder
+    func CardView(value: DateValue) -> some View{
+       
+        VStack(alignment:.center){
+            
+            if value.day != -1{
+                Text("\(value.day)")
+                    .font(.custom("GenSenRoundedTW-B", size:12))
+            }
+        }
+        .padding(.vertical,8)
+        .frame(height: 32, alignment: .center)
+        
+    }
+    
+    
     
     //extract year & month
     func extraDate() -> [String]{
@@ -110,7 +136,7 @@ struct CalenderView: View {
         //get current month
         let currentMonth = getCurrentMonth()
         
-        return currentMonth.getAllDates().compactMap {date -> DateValue
+        var days = currentMonth.getAllDates().compactMap {date -> DateValue
             in
             
             //get day
@@ -120,6 +146,13 @@ struct CalenderView: View {
             
         }
         
+        //add offset to get week days correct
+        let firstWeekday = calender.component(.weekday, from: days.first?.date ?? Date())
+        
+        for _ in 0..<firstWeekday - 1{
+            days.insert(DateValue(day: -1, date: Date()), at: 0)
+        }
+        return days
     }
     
 }
@@ -140,14 +173,14 @@ extension Date{
         let startDate = calender.date(from: Calendar.current.dateComponents([.year,.month], from: self))!
         
         
-        var range = calender.range(of: .day, in: .month, for: startDate)!
-        range.removeLast()
+        let range = calender.range(of: .day, in: .month, for: startDate)!
+        //range.removeLast()
         
         
         //get date
         return range.compactMap{day -> Date in
             
-            return calender.date(byAdding: .day, value: day == 1 ? 0: day, to: startDate)!
+            return calender.date(byAdding: .day, value: day - 1, to: startDate)!
             
         }
         

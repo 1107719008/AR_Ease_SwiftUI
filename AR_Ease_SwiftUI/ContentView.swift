@@ -111,3 +111,9 @@ extension UITabBarController {
         }
     }
 }
+
+
+//font ref
+//.font(.custom("GenSenRoundedTW-B", size:32))
+//.foregroundColor(Color("Black_700"))
+
