@@ -23,12 +23,11 @@ struct PersonView: View {
             HStack{
                 
                 VStack{
-                    Text("舒緩一下吧～")
+                    Text("  ")
                         .font(.custom("GenSenRoundedTW-B", size:32))
                         .foregroundColor(Color("Black_700"))
                         .padding(.bottom, 0.0)
                         .offset(x:-18,y:0)
-                    
                     
                     Image("HIwithBG")
                     
@@ -95,7 +94,7 @@ struct PersonView: View {
                                 
                         }
                         
-                    }).offset(x:-290).frame(width: 0.0, height: 70.0)
+                    }).padding(.top, 0.0).offset(x:-285).frame(width: 0.0, height: 70.0)
                         
                     
                     

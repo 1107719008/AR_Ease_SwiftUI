@@ -35,6 +35,7 @@
 		9AE50F0D2A3C3667004F7F06 /* ChartCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE50F0C2A3C3667004F7F06 /* ChartCardView.swift */; };
 		9AE50F0F2A3C36E5004F7F06 /* ChartBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE50F0E2A3C36E5004F7F06 /* ChartBarView.swift */; };
 		9AE50F112A3CCA2C004F7F06 /* CalenderBelowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE50F102A3CCA2C004F7F06 /* CalenderBelowView.swift */; };
+		9AE50F132A3CE237004F7F06 /* GameFinishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE50F122A3CE237004F7F06 /* GameFinishView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 		9AE50F0C2A3C3667004F7F06 /* ChartCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCardView.swift; sourceTree = "<group>"; };
 		9AE50F0E2A3C36E5004F7F06 /* ChartBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartBarView.swift; sourceTree = "<group>"; };
 		9AE50F102A3CCA2C004F7F06 /* CalenderBelowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderBelowView.swift; sourceTree = "<group>"; };
+		9AE50F122A3CE237004F7F06 /* GameFinishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameFinishView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 				9AE50F0E2A3C36E5004F7F06 /* ChartBarView.swift */,
 				9AE50F0C2A3C3667004F7F06 /* ChartCardView.swift */,
 				9AE50F032A3ACDAC004F7F06 /* CalenderView.swift */,
+				9AE50F122A3CE237004F7F06 /* GameFinishView.swift */,
 				9AE50F102A3CCA2C004F7F06 /* CalenderBelowView.swift */,
 				9AE50F052A3ADA05004F7F06 /* Model */,
 				9A2616D62A375E68007FF28A /* PersonView.swift */,
@@ -346,6 +349,7 @@
 				9A2616C42A36D6B3007FF28A /* ViewControllerCameraView.swift in Sources */,
 				9A2616922A330400007FF28A /* ContentView.swift in Sources */,
 				9AE50F0B2A3C0B46004F7F06 /* ChartView.swift in Sources */,
+				9AE50F132A3CE237004F7F06 /* GameFinishView.swift in Sources */,
 				9AE50F072A3ADA26004F7F06 /* DateValue.swift in Sources */,
 				9A2616D72A375E68007FF28A /* PersonView.swift in Sources */,
 				9AE50F042A3ACDAC004F7F06 /* CalenderView.swift in Sources */,

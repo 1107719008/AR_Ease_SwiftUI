@@ -9,11 +9,10 @@ import Foundation
 import SwiftUI
 
 struct HomeView: View {
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
   
-            
-        NavigationView{
             ScrollView{
                 ZStack {
                     Color.white
@@ -21,41 +20,54 @@ struct HomeView: View {
                     VStack{
                         PersonView()
                         
-                        NavigationLink(destination: ChoosePartView()){
+                        NavigationLink(destination: ChoosePartView()
+                            //.navigationBarBackButtonHidden(true)
+                            //.navigationBarItems(leading: backButton)
+                        ){
                             Image("Circle_GoChosenBTN").resizable().frame(width:60,height: 60)
-                                
+                            
                         }.offset(x:155,y:-45)
+                        
+                        
                         
                         
                         SuggestClassCard()
                             .padding(.top, -25.0)
-                       
+                        
                     }//stack end
+                    .padding(.top, -50.0)
                     
                     
                     
                 }
                 
             }.accentColor(Color("Black_800"))
+        
             
             
-        }
-            
-                    
-            
-            
+        
             
 
-        
-        
-        
-//body&struct end
-    }
+    }//body end
+    
+    var backButton: some View {
+           Button(action: {
+               // 返回按鈕的動作
+               self.presentationMode.wrappedValue.dismiss()
+           }) {
+               Image(systemName: "chevron.left")
+                   .foregroundColor(.blue)
+                   .imageScale(.large)
+                   .frame(width: 30, height: 30)
+                   .contentShape(Rectangle())
+           }
+       }
+    
 }
 
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        ContentView()
     }
 }

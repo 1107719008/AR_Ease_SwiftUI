@@ -67,7 +67,6 @@ struct ContentView: View {
                 }
                 
             }//hstack end
-            
             .toolbar{
                 ToolbarItem(placement: .navigationBarLeading){
                     Button(action: {
@@ -78,7 +77,17 @@ struct ContentView: View {
                     })
                     
                 }
-          
+                
+                ToolbarItem(placement: .principal) {
+                    
+                    Text(selection == 0 ? "記錄追蹤" : (selection == 1 ? "Ease" : "個人設定"))
+                        .font(.custom("GenSenRoundedTW-B", size:28))
+                        .foregroundColor(Color("Black_700"))
+                    
+                    
+                }
+                
+                
                 ToolbarItem(placement: .navigationBarTrailing){
                     Button(action: {
                         
@@ -89,6 +98,7 @@ struct ContentView: View {
                     })
                 }
             }
+            //.navigationBarTitleDisplayMode(.inline)
             
         }//nav view end
             
