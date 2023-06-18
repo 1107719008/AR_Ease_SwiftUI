@@ -11,6 +11,8 @@ import SwiftUI
 struct HomeView: View {
     @Environment(\.presentationMode) var presentationMode
     
+    @EnvironmentObject var bodyChosen: BodyPartSharedState
+    
     var body: some View {
   
             ScrollView{
@@ -19,6 +21,8 @@ struct HomeView: View {
                         .ignoresSafeArea()
                     VStack{
                         PersonView()
+                            
+                            
                         
                         NavigationLink(destination: ChoosePartView()
                             //.navigationBarBackButtonHidden(true)
@@ -28,14 +32,11 @@ struct HomeView: View {
                             
                         }.offset(x:155,y:-45)
                         
-                        
-                        
-                        
                         SuggestClassCard()
                             .padding(.top, -25.0)
                         
                     }//stack end
-                    .padding(.top, -50.0)
+                    .padding(.top, -15.0)
                     
                     
                     
@@ -68,6 +69,6 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+       HomeView().environmentObject(BodyPartSharedState())
     }
 }

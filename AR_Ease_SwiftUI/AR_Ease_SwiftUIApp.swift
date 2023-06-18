@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct AR_Ease_SwiftUIApp: App {
+    @StateObject var bodyChosen = BodyPartSharedState()
+    
     var body: some Scene {
         WindowGroup {
             ContentView().preferredColorScheme(.light)//light mood
+                .environmentObject(bodyChosen)
         }
     }
 }

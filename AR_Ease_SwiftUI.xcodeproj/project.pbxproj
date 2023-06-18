@@ -28,6 +28,8 @@
 		9A2616D32A371B3C007FF28A /* CountDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2616D22A371B3C007FF28A /* CountDownView.swift */; };
 		9A2616D52A3758ED007FF28A /* ChoosePartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2616D42A3758ED007FF28A /* ChoosePartView.swift */; };
 		9A2616D72A375E68007FF28A /* PersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2616D62A375E68007FF28A /* PersonView.swift */; };
+		9AD4048E2A3EF12400A30459 /* GamePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD4048D2A3EF12400A30459 /* GamePageView.swift */; };
+		9AD404912A3EFF2F00A30459 /* ChooseButtonStates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD404902A3EFF2F00A30459 /* ChooseButtonStates.swift */; };
 		9AE50F042A3ACDAC004F7F06 /* CalenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE50F032A3ACDAC004F7F06 /* CalenderView.swift */; };
 		9AE50F072A3ADA26004F7F06 /* DateValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE50F062A3ADA26004F7F06 /* DateValue.swift */; };
 		9AE50F092A3B1FEC004F7F06 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE50F082A3B1FEC004F7F06 /* Record.swift */; };
@@ -81,6 +83,8 @@
 		9A2616D22A371B3C007FF28A /* CountDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountDownView.swift; sourceTree = "<group>"; };
 		9A2616D42A3758ED007FF28A /* ChoosePartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePartView.swift; sourceTree = "<group>"; };
 		9A2616D62A375E68007FF28A /* PersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonView.swift; sourceTree = "<group>"; };
+		9AD4048D2A3EF12400A30459 /* GamePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePageView.swift; sourceTree = "<group>"; };
+		9AD404902A3EFF2F00A30459 /* ChooseButtonStates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseButtonStates.swift; sourceTree = "<group>"; };
 		9AE50F032A3ACDAC004F7F06 /* CalenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderView.swift; sourceTree = "<group>"; };
 		9AE50F062A3ADA26004F7F06 /* DateValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateValue.swift; sourceTree = "<group>"; };
 		9AE50F082A3B1FEC004F7F06 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
@@ -149,7 +153,6 @@
 				9AE50F0E2A3C36E5004F7F06 /* ChartBarView.swift */,
 				9AE50F0C2A3C3667004F7F06 /* ChartCardView.swift */,
 				9AE50F032A3ACDAC004F7F06 /* CalenderView.swift */,
-				9AE50F122A3CE237004F7F06 /* GameFinishView.swift */,
 				9AE50F102A3CCA2C004F7F06 /* CalenderBelowView.swift */,
 				9AE50F052A3ADA05004F7F06 /* Model */,
 				9A2616D62A375E68007FF28A /* PersonView.swift */,
@@ -160,6 +163,8 @@
 				9A2616C32A36D6B3007FF28A /* ViewControllerCameraView.swift */,
 				9A2616C52A36D6CA007FF28A /* VideoCapture.swift */,
 				9A2616C72A36D6D2007FF28A /* PosePredictor.swift */,
+				9AD4048D2A3EF12400A30459 /* GamePageView.swift */,
+				9AE50F122A3CE237004F7F06 /* GameFinishView.swift */,
 				9A2616932A330401007FF28A /* Assets.xcassets */,
 				9A2616CD2A37164E007FF28A /* GenSenRounded-R.ttc */,
 				9A2616CB2A37163E007FF28A /* GenSenRounded-M.ttc */,
@@ -194,9 +199,18 @@
 			path = AR_Ease_SwiftUIUITests;
 			sourceTree = "<group>";
 		};
+		9AD4048F2A3EFEC200A30459 /* ChooseButton */ = {
+			isa = PBXGroup;
+			children = (
+				9AD404902A3EFF2F00A30459 /* ChooseButtonStates.swift */,
+			);
+			path = ChooseButton;
+			sourceTree = "<group>";
+		};
 		9AE50F052A3ADA05004F7F06 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9AD4048F2A3EFEC200A30459 /* ChooseButton */,
 				9AE50F062A3ADA26004F7F06 /* DateValue.swift */,
 				9AE50F082A3B1FEC004F7F06 /* Record.swift */,
 			);
@@ -343,6 +357,8 @@
 				9AE50F112A3CCA2C004F7F06 /* CalenderBelowView.swift in Sources */,
 				9A2616BE2A330541007FF28A /* SettingView.swift in Sources */,
 				9AE50F0D2A3C3667004F7F06 /* ChartCardView.swift in Sources */,
+				9AD404912A3EFF2F00A30459 /* ChooseButtonStates.swift in Sources */,
+				9AD4048E2A3EF12400A30459 /* GamePageView.swift in Sources */,
 				9A2616BC2A330514007FF28A /* HomeView.swift in Sources */,
 				9AE50F092A3B1FEC004F7F06 /* Record.swift in Sources */,
 				9A2616D52A3758ED007FF28A /* ChoosePartView.swift in Sources */,

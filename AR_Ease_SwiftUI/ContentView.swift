@@ -10,7 +10,10 @@ import SwiftUI
 struct ContentView: View {
     
     @State var selection = 1
-
+    
+    @EnvironmentObject var bodyChosen: BodyPartSharedState
+    
+    
     //init the tab bar bg
     init() {
             let appearance = UITabBarAppearance()
@@ -23,6 +26,10 @@ struct ContentView: View {
             tabBar.standardAppearance = appearance
             tabBar.scrollEdgeAppearance = appearance
         }
+    
+
+ 
+    
     
     var body: some View {
         NavigationView{
@@ -53,6 +60,7 @@ struct ContentView: View {
                             }
                             
                         }.tag(1)
+                        
                     
                     SettingView()
                         .tabItem{
@@ -69,12 +77,12 @@ struct ContentView: View {
             }//hstack end
             .toolbar{
                 ToolbarItem(placement: .navigationBarLeading){
-                    Button(action: {
+                    NavigationLink(destination: GamePageView()
+                    ){
+                        Image("GameIcon")
                         
-                    }, label: {
-                        Image("GameIcon").padding(10)
-                        
-                    })
+                    }.navigationTitle("")
+                    
                     
                 }
                 
@@ -84,24 +92,23 @@ struct ContentView: View {
                         .font(.custom("GenSenRoundedTW-B", size:28))
                         .foregroundColor(Color("Black_700"))
                     
-                    
                 }
                 
                 
                 ToolbarItem(placement: .navigationBarTrailing){
-                    Button(action: {
-                        
-                    }, label: {
-                        Image("MyList").padding(10)
-                        
-                        
-                    })
+                    NavigationLink(destination: GamePageView()
+                    ){
+                        Image("MyList")
+
+                    }.navigationTitle("")
                 }
             }
-            //.navigationBarTitleDisplayMode(.inline)
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbarBackground(.white, for: .navigationBar)
+           
             
         }//nav view end
-            
+        .accentColor(Color("Black_700"))
         
         
     }
@@ -110,6 +117,7 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(BodyPartSharedState())
     }
 }
 
@@ -127,3 +135,11 @@ extension UITabBarController {
 //.font(.custom("GenSenRoundedTW-B", size:32))
 //.foregroundColor(Color("Black_700"))
 
+//button ref
+//Button(action: {
+//
+//
+//}, label: {
+//
+//
+//})

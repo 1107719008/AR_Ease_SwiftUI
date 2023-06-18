@@ -9,13 +9,18 @@ import SwiftUI
 
 struct ChoosePartView: View {
     
+    @EnvironmentObject var bodyChosen: BodyPartSharedState
+    
     @State private var isPresented = false
     
-    @State private var isSelectedNeck = false
-    @State private var isSelectedShoulder = false
-    @State private var isSelectedWaist = false
-    @State private var isSelectedBack = false
-    @State private var isSelectedCalf = false
+    
+    
+    //分頁用
+    @State private var isSelectedNeckPage = false
+    @State private var isSelectedShoulderPage = false
+    @State private var isSelectedWaistPage = false
+    @State private var isSelectedBackPage = false
+    @State private var isSelectedCalfPage = false
     
     //summary
     @State private var sum = 0
@@ -30,93 +35,353 @@ struct ChoosePartView: View {
     init() {
         //Customize nav bar title size
         UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont(name: "Georgia-Bold", size: 28)!]
+        
+        
+        
     }
+
     
+    //not used
+    /*func setValueBody(){
+        let firstPart = bodyChosen.sortTheBodyParts()
+        switch firstPart {
+        case "Neck":
+            isSelectedNeckPage = true
+            break
+        case "Shoulder":
+            isSelectedShoulderPage = true
+            break
+        case "Waist":
+            isSelectedWaistPage = true
+            break
+        case "Back":
+            isSelectedBackPage = true
+            break
+        case "Calf":
+            isSelectedCalfPage = true
+            break
+        default:
+            //do nothing
+            break
+            
+        }
+    }*/
+    
+    func sortTheBodyParts(){
+        let originalBody = [("Neck",bodyChosen.isSelectedNeck),("Shoulder",bodyChosen.isSelectedShoulder),("Waist",bodyChosen.isSelectedWaist),("Back",bodyChosen.isSelectedBack),("Calf",bodyChosen.isSelectedCalf)]
+        let sortedBody = originalBody.filter { $0.1 }.map { $0.0 }
+        
+        switch sortedBody[0]{
+        case "Neck":
+            isSelectedNeckPage = true
+            break
+        case "Shoulder":
+            isSelectedShoulderPage = true
+            break
+        case "Back":
+            isSelectedBackPage = true
+            break
+        case "Waist":
+            isSelectedWaistPage = true
+            break
+        case "Calf":
+            isSelectedCalfPage = true
+            break
+        default:
+            break
+        }
+        
+    }
     
     var body: some View {
         
         NavigationView{
             VStack(spacing:20){
                 HStack{
-                   
+                    
 
                     Text("選擇想要的姿勢").font(.custom("GenSenRoundedTW-B", size:28))
-                        .foregroundColor((Color("Black_800"))).padding(.leading, 32)
+                        .foregroundColor((Color("Black_800"))).padding(.leading, 30)
                     Spacer()
                 }
                 ScrollView(.horizontal,showsIndicators: false){
                     HStack(spacing:12){
-                        Button(action: {
-                            isSelectedNeck.toggle()
-                        }, label: {
-                            if isSelectedNeck{
-                                Image("NeckClicked")
-                                 
-                            }else{
-                                Image("NeckUnclicked")
-                                   
-                            }
-                        }
-                        )
-                        
-                        Button(action: {
-                            isSelectedShoulder.toggle()
-                        }, label: {
-                            if isSelectedShoulder{
-                                Image("ShoulderClicked")
+                        if bodyChosen.isSelectedNeck{
+                            Button(action: {
+                                isSelectedNeckPage = true
+                                isSelectedShoulderPage = false
+                                isSelectedBackPage = false
+                                isSelectedWaistPage = false
+                                isSelectedCalfPage = false
                                 
-                            }else{
-                                Image("ShoulderUnclicked")
-                                }
-                            
-                        })
-                        
-                        Button(action: {
-                            isSelectedWaist.toggle()
-                        }, label: {
-                            if isSelectedWaist{
-                                Image("WaistClicked")
-                            }else{
-                                Image("WaistUnclicked")
-                            }
-                            
-                        })
-                        
-                        Button(action: {
-                            isSelectedBack.toggle()
-                        }, label: {
-                            if isSelectedBack{
-                                Image("BackClicked")
-                            }else{
-                                Image("BackUnclicked")
-                            }
-                            
-                        })
-                        
-                        Button(action: {
-                          
-                                isSelectedCalf.toggle()
-                           
-                        }, label: {
-                            if isSelectedCalf{
-                                Image("CalfClicked")
-                                   
-                            }else{
-                                Image("CalfUnclicked")
+                            }, label: {
+                                if isSelectedNeckPage{
+                                    Image("NeckClicked")
                                     
-                            }
-                            
-                        })
+                                }else{
+                                    Image("NeckUnclicked")
+                                    
+                                }
+                            })
+                        }
+                        
+                        if bodyChosen.isSelectedShoulder{
+                            Button(action: {
+                                isSelectedNeckPage = false
+                                isSelectedShoulderPage = true
+                                isSelectedBackPage = false
+                                isSelectedWaistPage = false
+                                isSelectedCalfPage = false
+                            }, label: {
+                                if isSelectedShoulderPage{
+                                    Image("ShoulderClicked")
+                                    
+                                }else{
+                                    Image("ShoulderUnclicked")
+                                }
+                                
+                            })
+                        }
+                        
+                        if bodyChosen.isSelectedWaist{
+                            Button(action: {
+                                isSelectedNeckPage = false
+                                isSelectedShoulderPage = false
+                                isSelectedBackPage = false
+                                isSelectedWaistPage = true
+                                isSelectedCalfPage = false
+                            }, label: {
+                                if isSelectedWaistPage{
+                                    Image("WaistClicked")
+                                }else{
+                                    Image("WaistUnclicked")
+                                }
+                                
+                            })
+                        }
+                        
+                        if bodyChosen.isSelectedBack{
+                            Button(action: {
+                                isSelectedNeckPage = false
+                                isSelectedShoulderPage = false
+                                isSelectedBackPage = true
+                                isSelectedWaistPage = false
+                                isSelectedCalfPage = false
+                            }, label: {
+                                if isSelectedBackPage{
+                                    Image("BackClicked")
+                                }else{
+                                    Image("BackUnclicked")
+                                }
+                                
+                            })
+                        }
+                        
+                        if bodyChosen.isSelectedCalf{
+                            Button(action: {
+                                isSelectedNeckPage = false
+                                isSelectedShoulderPage = false
+                                isSelectedBackPage = false
+                                isSelectedWaistPage = false
+                                isSelectedCalfPage = true
+                                
+                            }, label: {
+                                if isSelectedCalfPage{
+                                    Image("CalfClicked")
+                                    
+                                }else{
+                                    Image("CalfUnclicked")
+                                    
+                                }
+                                
+                            })
+                        }
+                        
  
                     }
                     .padding(.leading, 32.0)
                     
                 }
-                ScrollView{
+                
+                ScrollView(showsIndicators: false){
+                    //分頁部位scrollview
                     VStack(spacing:22){
-                        
                         //neck
-                        if isSelectedNeck{
+                        if isSelectedNeckPage{
+                            
+                            Button(action: {
+                              
+                                isChoseAction1.toggle()
+                               
+                            }, label: {
+                                if isChoseAction1{
+                                    Image("A2")
+                                       
+                                }else{
+                                    Image("A1")
+                                        
+                                }
+                                
+                            })
+                            Button(action: {
+                              
+                                isChoseAction2.toggle()
+                               
+                            }, label: {
+                                if isChoseAction2{
+                                    Image("B2")
+                                       
+                                }else{
+                                    Image("B1")
+                                        
+                                }
+                                
+                            })
+                            Button(action: {
+                              
+                                isChoseAction3.toggle()
+                               
+                            }, label: {
+                                if isChoseAction3{
+                                    Image("C2")
+                                       
+                                }else{
+                                    Image("C1")
+                                        
+                                }
+                                
+                            })
+                            
+                        }else if isSelectedShoulderPage{//shoulder
+                            Button(action: {
+                              
+                                isChoseAction1.toggle()
+                               
+                            }, label: {
+                                if isChoseAction1{
+                                    Image("A2")
+                                       
+                                }else{
+                                    Image("A1")
+                                        
+                                }
+                                
+                            })
+                            Button(action: {
+                              
+                                isChoseAction2.toggle()
+                               
+                            }, label: {
+                                if isChoseAction2{
+                                    Image("B2")
+                                       
+                                }else{
+                                    Image("B1")
+                                        
+                                }
+                                
+                            })
+                            Button(action: {
+                              
+                                isChoseAction3.toggle()
+                               
+                            }, label: {
+                                if isChoseAction3{
+                                    Image("C2")
+                                       
+                                }else{
+                                    Image("C1")
+                                        
+                                }
+                                
+                            })
+                        }else if isSelectedWaistPage{
+                            Button(action: {
+                              
+                                isChoseAction1.toggle()
+                               
+                            }, label: {
+                                if isChoseAction1{
+                                    Image("A2")
+                                       
+                                }else{
+                                    Image("A1")
+                                        
+                                }
+                                
+                            })
+                            Button(action: {
+                              
+                                isChoseAction2.toggle()
+                               
+                            }, label: {
+                                if isChoseAction2{
+                                    Image("B2")
+                                       
+                                }else{
+                                    Image("B1")
+                                        
+                                }
+                                
+                            })
+                            Button(action: {
+                              
+                                isChoseAction3.toggle()
+                               
+                            }, label: {
+                                if isChoseAction3{
+                                    Image("C2")
+                                       
+                                }else{
+                                    Image("C1")
+                                        
+                                }
+                                
+                            })
+                        }else if isSelectedBackPage{
+                            Button(action: {
+                              
+                                isChoseAction1.toggle()
+                               
+                            }, label: {
+                                if isChoseAction1{
+                                    Image("A2")
+                                       
+                                }else{
+                                    Image("A1")
+                                        
+                                }
+                                
+                            })
+                            Button(action: {
+                              
+                                isChoseAction2.toggle()
+                               
+                            }, label: {
+                                if isChoseAction2{
+                                    Image("B2")
+                                       
+                                }else{
+                                    Image("B1")
+                                        
+                                }
+                                
+                            })
+                            Button(action: {
+                              
+                                isChoseAction3.toggle()
+                               
+                            }, label: {
+                                if isChoseAction3{
+                                    Image("C2")
+                                       
+                                }else{
+                                    Image("C1")
+                                        
+                                }
+                                
+                            })
+                        }else if isSelectedCalfPage{
                             Button(action: {
                               
                                 isChoseAction1.toggle()
@@ -160,203 +425,7 @@ struct ChoosePartView: View {
                                 
                             })
                         }else{
-                            //neck not chosen, not thing display
-                                
-                        }
-                        //shoulder
-                        if isSelectedShoulder{
-                            Button(action: {
-                              
-                                isChoseAction1.toggle()
-                               
-                            }, label: {
-                                if isChoseAction1{
-                                    Image("A2")
-                                       
-                                }else{
-                                    Image("A1")
-                                        
-                                }
-                                
-                            })
-                            Button(action: {
-                              
-                                isChoseAction2.toggle()
-                               
-                            }, label: {
-                                if isChoseAction2{
-                                    Image("B2")
-                                       
-                                }else{
-                                    Image("B1")
-                                        
-                                }
-                                
-                            })
-                            Button(action: {
-                              
-                                isChoseAction3.toggle()
-                               
-                            }, label: {
-                                if isChoseAction3{
-                                    Image("C2")
-                                       
-                                }else{
-                                    Image("C1")
-                                        
-                                }
-                                
-                            })
-                        }else{
-                            //shoulder not chosen, not thing display
-                                
-                        }
-                        
-                        //Waist
-                        if isSelectedWaist{
-                            Button(action: {
-                              
-                                isChoseAction1.toggle()
-                               
-                            }, label: {
-                                if isChoseAction1{
-                                    Image("A2")
-                                       
-                                }else{
-                                    Image("A1")
-                                        
-                                }
-                                
-                            })
-                            Button(action: {
-                              
-                                isChoseAction2.toggle()
-                               
-                            }, label: {
-                                if isChoseAction2{
-                                    Image("B2")
-                                       
-                                }else{
-                                    Image("B1")
-                                        
-                                }
-                                
-                            })
-                            Button(action: {
-                              
-                                isChoseAction3.toggle()
-                               
-                            }, label: {
-                                if isChoseAction3{
-                                    Image("C2")
-                                       
-                                }else{
-                                    Image("C1")
-                                        
-                                }
-                                
-                            })
-                        }else{
-                            //waist not chosen, not thing display
-                                
-                        }
-                        
-                        
-                        //Back
-                        if isSelectedBack{
-                            Button(action: {
-                              
-                                isChoseAction1.toggle()
-                               
-                            }, label: {
-                                if isChoseAction1{
-                                    Image("A2")
-                                       
-                                }else{
-                                    Image("A1")
-                                        
-                                }
-                                
-                            })
-                            Button(action: {
-                              
-                                isChoseAction2.toggle()
-                               
-                            }, label: {
-                                if isChoseAction2{
-                                    Image("B2")
-                                       
-                                }else{
-                                    Image("B1")
-                                        
-                                }
-                                
-                            })
-                            Button(action: {
-                              
-                                isChoseAction3.toggle()
-                               
-                            }, label: {
-                                if isChoseAction3{
-                                    Image("C2")
-                                       
-                                }else{
-                                    Image("C1")
-                                        
-                                }
-                                
-                            })
-                        }else{
-                            //back not chosen, not thing display
-                                
-                        }
-                        
-                        //calf
-                        if isSelectedCalf{
-                            Button(action: {
-                              
-                                isChoseAction1.toggle()
-                               
-                            }, label: {
-                                if isChoseAction1{
-                                    Image("A2")
-                                       
-                                }else{
-                                    Image("A1")
-                                        
-                                }
-                                
-                            })
-                            Button(action: {
-                              
-                                isChoseAction2.toggle()
-                               
-                            }, label: {
-                                if isChoseAction2{
-                                    Image("B2")
-                                       
-                                }else{
-                                    Image("B1")
-                                        
-                                }
-                                
-                            })
-                            Button(action: {
-                              
-                                isChoseAction3.toggle()
-                               
-                            }, label: {
-                                if isChoseAction3{
-                                    Image("C2")
-                                       
-                                }else{
-                                    Image("C1")
-                                        
-                                }
-                                
-                            })
-                        }else{
-                            //calf not chosen, not thing display
+                            //noting chosen
                                 
                         }
                         
@@ -385,12 +454,17 @@ struct ChoosePartView: View {
                             
                         }.offset(x:-15)
                     }
-                }
+                }.navigationBarBackButtonHidden(true)
                 
                     
-            }.navigationBarBackButtonHidden(true)
+            }
             
         }
+        .onAppear{
+            sortTheBodyParts()
+        }
+        
+        
     }
     
     func CalculateSumTime(_ value: Int) -> Int{
@@ -408,7 +482,7 @@ struct ChoosePartView: View {
 
 struct ChoosePartView_Previews: PreviewProvider {
     static var previews: some View {
-        ChoosePartView()
+        ChoosePartView().environmentObject(BodyPartSharedState())
     }
 }
 

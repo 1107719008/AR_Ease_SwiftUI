@@ -8,15 +8,17 @@
 import SwiftUI
 
 struct PersonView: View {
+    //for enviorement bodyparts
     
-    @State private var isSelectedNeck = false
-    @State private var isSelectedShoulder = false
-    @State private var isSelectedWaist = false
-    @State private var isSelectedBack = false
-    @State private var isSelectedCalf = false
+    @EnvironmentObject var bodyChosen: BodyPartSharedState
     
-    
-    var body: some View {
+//    @State private var isSelectedNeck = false
+//    @State private var isSelectedShoulder = false
+//    @State private var isSelectedWaist = false
+//    @State private var isSelectedBack = false
+//    @State private var isSelectedCalf = false
+
+        var body: some View {
         ZStack {
             Color.white
                 .ignoresSafeArea()
@@ -35,9 +37,9 @@ struct PersonView: View {
                 
                 VStack{
                     Button(action: {
-                        isSelectedNeck.toggle()
+                        bodyChosen.isSelectedNeck.toggle()
                     }, label: {
-                        if isSelectedNeck{
+                        if bodyChosen.isSelectedNeck{
                             Image("NeckFilled")
                              
                         }else{
@@ -48,9 +50,9 @@ struct PersonView: View {
                     ).offset(x:-275).frame(width: 0.0, height: 60.0)
                     
                     Button(action: {
-                        isSelectedShoulder.toggle()
+                        bodyChosen.isSelectedShoulder.toggle()
                     }, label: {
-                        if isSelectedShoulder{
+                        if bodyChosen.isSelectedShoulder{
                             Image("ShoulderFilled")
                             
                         }else{
@@ -60,9 +62,9 @@ struct PersonView: View {
                     }).offset(x:-310).frame(width: 0.0, height: 60.0)
                     
                     Button(action: {
-                        isSelectedWaist.toggle()
+                        bodyChosen.isSelectedWaist.toggle()
                     }, label: {
-                        if isSelectedWaist{
+                        if bodyChosen.isSelectedWaist{
                             Image("WaistFilled")
                         }else{
                             Image("WaistOutline")
@@ -71,9 +73,9 @@ struct PersonView: View {
                     }).offset(x:-325).frame(width: 0.0, height: 60.0)
                     
                     Button(action: {
-                        isSelectedBack.toggle()
+                        bodyChosen.isSelectedBack.toggle()
                     }, label: {
-                        if isSelectedBack{
+                        if bodyChosen.isSelectedBack{
                             Image("BackFilled")
                         }else{
                             Image("BackOutline")
@@ -83,10 +85,10 @@ struct PersonView: View {
                     
                     Button(action: {
                       
-                            isSelectedCalf.toggle()
+                        bodyChosen.isSelectedCalf.toggle()
                        
                     }, label: {
-                        if isSelectedCalf{
+                        if bodyChosen.isSelectedCalf{
                             Image("CalfFilled")
                                
                         }else{
@@ -105,14 +107,16 @@ struct PersonView: View {
                 
             }
             
-            
+           
         }.offset(x:35)
         
+        
     }
+    
 }
 
 struct PersonView_Previews: PreviewProvider {
     static var previews: some View {
-        PersonView()
+        PersonView().environmentObject(BodyPartSharedState())
     }
 }

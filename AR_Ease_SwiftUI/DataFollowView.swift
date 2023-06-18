@@ -24,11 +24,11 @@ struct DataFollowView: View {
                 ZStack{
                     Image("RWhite").resizable().ignoresSafeArea().frame(width:.infinity,height:115)
                     VStack{
-                        Text("記錄追蹤")
-                            .font(.custom("GenSenRoundedTW-B", size:32))
-                            .foregroundColor(Color("Black_700"))
-                            .padding(.bottom, 38)
-                            .offset(x:0,y:0)
+//                        Text("記錄追蹤")
+//                            .font(.custom("GenSenRoundedTW-B", size:32))
+//                            .foregroundColor(Color("Black_700"))
+//                            .padding(.bottom, 38)
+//                            .offset(x:0,y:0)
                         
                         //top switch card
                         HStack(spacing:0){
