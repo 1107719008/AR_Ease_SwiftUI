@@ -13,8 +13,6 @@ struct ChoosePartView: View {
     
     @State private var isPresented = false
     
-    
-    
     //分頁用
     @State private var isSelectedNeckPage = false
     @State private var isSelectedShoulderPage = false
@@ -89,6 +87,7 @@ struct ChoosePartView: View {
             break
         default:
             break
+            
         }
         
     }
@@ -104,6 +103,11 @@ struct ChoosePartView: View {
                         .foregroundColor((Color("Black_800"))).padding(.leading, 30)
                     Spacer()
                 }
+                HStack{
+                    Text("最多選擇 15 種姿勢").font(.custom("GenSenRoundedTW-R", size:12)).foregroundColor((Color("Blue_700"))).padding(.leading, 30)
+                    Spacer()
+                }
+                
                 ScrollView(.horizontal,showsIndicators: false){
                     HStack(spacing:12){
                         if bodyChosen.isSelectedNeck{
@@ -381,7 +385,6 @@ struct ChoosePartView: View {
                                 }
                                 
                             })
-                        }else if isSelectedCalfPage{
                             Button(action: {
                               
                                 isChoseAction1.toggle()
@@ -410,16 +413,45 @@ struct ChoosePartView: View {
                                 }
                                 
                             })
+                        }else if isSelectedCalfPage{
+                            Button(action: {
+                              
+                                isChoseAction1.toggle()
+                               
+                            }, label: {
+                                if isChoseAction1{
+                                    Image("D2")
+                                       
+                                }else{
+                                    Image("D1")
+                                        
+                                }
+                                
+                            })
+                            Button(action: {
+                              
+                                isChoseAction2.toggle()
+                               
+                            }, label: {
+                                if isChoseAction2{
+                                    Image("E2")
+                                       
+                                }else{
+                                    Image("E1")
+                                        
+                                }
+                                
+                            })
                             Button(action: {
                               
                                 isChoseAction3.toggle()
                                
                             }, label: {
                                 if isChoseAction3{
-                                    Image("C2")
+                                    Image("D2")
                                        
                                 }else{
-                                    Image("C1")
+                                    Image("D1")
                                         
                                 }
                                 
@@ -445,10 +477,10 @@ struct ChoosePartView: View {
                     ZStack{//sum then go btn here
                         Image("yellowGoBtnBig")
                         VStack(alignment: .leading,spacing:5){
-                            Text("共\(sum)項")
+                            Text("共 \(sum) 項")
                                 .font(.custom("GenSenRoundedTW-B", size:16))
                                 .foregroundColor(.white)
-                            Text("總共\(sumTime)分鐘")
+                            Text("總共 \(sumTime) 分鐘")
                                 .font(.custom("GenSenRoundedTW-B", size:16))
                                 .foregroundColor(.white)
                             
@@ -467,16 +499,7 @@ struct ChoosePartView: View {
         
     }
     
-    func CalculateSumTime(_ value: Int) -> Int{
-        sumTime += value
-        
-        return sumTime
-    }
-    func CalculateSum(_ value: Int) -> Int{
-        sum += value
-        
-        return sum
-    }
+    
     
 }
 

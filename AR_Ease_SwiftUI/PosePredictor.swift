@@ -167,7 +167,7 @@ class PosePredictor{
             }
             
             let RightLegAngle = calculateAngle(pointA: displayedPointRHip, pointB: displayedPointRKnee, pointC: displayedPointRAnkle)
-            if RightLegAngle <= 35 && RightLegAngle >= 0 {
+            if RightLegAngle <= 60 && RightLegAngle >= 0 {
                 checkLegPos=true
                 print("leg ok")
             }else{

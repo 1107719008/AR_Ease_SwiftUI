@@ -96,7 +96,7 @@ struct ContentView: View {
                 
                 
                 ToolbarItem(placement: .navigationBarTrailing){
-                    NavigationLink(destination: GamePageView()
+                    NavigationLink(destination: MyMenuView()
                     ){
                         Image("MyList")
 

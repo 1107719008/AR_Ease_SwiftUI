@@ -37,6 +37,12 @@ class ViewController: UIViewController {
     let imageCircleView = UIImageView()
     
     
+    //ok color-failed color
+    var dectectColor = UIColor.yellow.withAlphaComponent(0.5).cgColor
+    var okColor = UIColor.green.withAlphaComponent(0.8).cgColor
+    var originColor = UIColor.yellow.withAlphaComponent(0.5).cgColor
+    var isColorChanged = false
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +51,7 @@ class ViewController: UIViewController {
         
         videoCapture.predictor.delegate = self
         
-        setHintUICircle()
+        //setHintUICircle()
         
     }
 
@@ -77,11 +83,18 @@ class ViewController: UIViewController {
         //previewLayer.videoGravity = .resizeAspectFill
         //previewLayer.connection?.videoOrientation = .landscapeRight
         
-        //draw points
-        view.layer.addSublayer(pointsLayer)
-        pointsLayer.frame = view.frame
-        pointsLayer.fillColor = UIColor.yellow.cgColor
+       
         
+        if isColorChanged{
+            view.layer.addSublayer(pointsLayer)
+            pointsLayer.frame = view.frame
+            pointsLayer.fillColor = okColor
+        }else{
+            //draw points
+            view.layer.addSublayer(pointsLayer)
+            pointsLayer.frame = view.frame
+            pointsLayer.fillColor = dectectColor
+        }
         
         
 //        view.layer.addSublayer(specificLayer)
@@ -93,6 +106,16 @@ class ViewController: UIViewController {
 
         
     }
+    
+    private func processCheckingPose(_ checkLegPos: Bool,_ checkHandPos: Bool){
+        if checkHandPos {
+            isColorChanged = true
+        } else {
+            isColorChanged = false
+        }
+    }
+    
+    
 
 }
 
@@ -107,20 +130,23 @@ extension ViewController: PredictorDelegate{
         let combinedPath = CGMutablePath()
         
         for point in convertedPoints {
-            let dotPath = UIBezierPath(ovalIn: CGRect(x: point.x, y: point.y, width: 10, height: 10))
+            let dotPath = UIBezierPath(ovalIn: CGRect(x: point.x, y: point.y, width: 20, height: 20))
             combinedPath.addPath(dotPath.cgPath)
         }
-    
+        
         pointsLayer.path = combinedPath
         
         DispatchQueue.main.async{
             self.pointsLayer.didChangeValue(for: \.path)
-           
+            self.pointsLayer.fillColor = self.isColorChanged ? self.okColor : self.dectectColor
         }
         
         //tester
-        print(checkLegPos)
-        print(checkHandPos)
+        //print(checkLegPos)
+        //print(checkHandPos)
+        processCheckingPose(checkLegPos,checkHandPos)
+        print(isColorChanged)
+        
     }
     
     
