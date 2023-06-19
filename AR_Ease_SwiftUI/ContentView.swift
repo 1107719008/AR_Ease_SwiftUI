@@ -36,8 +36,38 @@ struct ContentView: View {
             HStack{
                 //tab view
                 TabView(selection: $selection){
-                    
-                    DataFollowView()
+                    NavigationView{
+                        DataFollowView().toolbar{
+                            ToolbarItem(placement: .navigationBarLeading){
+                                NavigationLink(destination: GamePageView()
+                                ){
+                                    Image("GameIcon")
+                                    
+                                }.navigationTitle("")
+                                
+                                
+                            }
+                            
+                            ToolbarItem(placement: .principal) {
+                                
+                                Text(selection == 0 ? "記錄追蹤" : (selection == 1 ? "Ease" : "個人設定"))
+                                    .font(.custom("GenSenRoundedTW-B", size:28))
+                                    .foregroundColor(Color("Black_700"))
+                                
+                            }
+                            
+                            
+                            ToolbarItem(placement: .navigationBarTrailing){
+                                NavigationLink(destination: MyMenuView()
+                                ){
+                                    Image("MyList")
+
+                                }.navigationTitle("")
+                            }
+                        }
+                        .navigationBarTitleDisplayMode(.inline)
+                        .toolbarBackground(.white, for: .navigationBar)
+                    }
                         .tabItem {
                             if selection == 0{
                                 Text("")
@@ -47,8 +77,39 @@ struct ContentView: View {
                                 Image("Record_unpress")
                             }
                         }.tag(0)
-                    
-                    HomeView()
+                    NavigationView{
+                        HomeView()
+                            .toolbar{
+                                ToolbarItem(placement: .navigationBarLeading){
+                                    NavigationLink(destination: GamePageView()
+                                    ){
+                                        Image("GameIcon")
+                                        
+                                    }.navigationTitle("")
+                                    
+                                    
+                                }
+                                
+                                ToolbarItem(placement: .principal) {
+                                    
+                                    Text(selection == 0 ? "記錄追蹤" : (selection == 1 ? "Ease" : "個人設定"))
+                                        .font(.custom("GenSenRoundedTW-B", size:28))
+                                        .foregroundColor(Color("Black_700"))
+                                    
+                                }
+                                
+                                
+                                ToolbarItem(placement: .navigationBarTrailing){
+                                    NavigationLink(destination: MyMenuView()
+                                    ){
+                                        Image("MyList")
+                                        
+                                    }.navigationTitle("")
+                                }
+                            }
+                        .navigationBarTitleDisplayMode(.inline)
+                        .toolbarBackground(.white, for: .navigationBar)
+                    }
                         .tabItem {
                             if selection == 1{
                                 Text("")
@@ -61,8 +122,38 @@ struct ContentView: View {
                             
                         }.tag(1)
                         
-                    
-                    SettingView()
+                    NavigationView{
+                        SettingView().toolbar{
+                            ToolbarItem(placement: .navigationBarLeading){
+                                NavigationLink(destination: GamePageView()
+                                ){
+                                    Image("GameIcon")
+                                    
+                                }.navigationTitle("")
+                                
+                                
+                            }
+                            
+                            ToolbarItem(placement: .principal) {
+                                
+                                Text(selection == 0 ? "記錄追蹤" : (selection == 1 ? "Ease" : "個人設定"))
+                                    .font(.custom("GenSenRoundedTW-B", size:28))
+                                    .foregroundColor(Color("Black_700"))
+                                
+                            }
+                            
+                            
+                            ToolbarItem(placement: .navigationBarTrailing){
+                                NavigationLink(destination: MyMenuView()
+                                ){
+                                    Image("MyList")
+
+                                }.navigationTitle("")
+                            }
+                        }
+                        .navigationBarTitleDisplayMode(.inline)
+                        .toolbarBackground(.white, for: .navigationBar)
+                    }
                         .tabItem{
                             if selection == 2{
                                 Text("")
@@ -75,36 +166,7 @@ struct ContentView: View {
                 }
                 
             }//hstack end
-            .toolbar{
-                ToolbarItem(placement: .navigationBarLeading){
-                    NavigationLink(destination: GamePageView()
-                    ){
-                        Image("GameIcon")
-                        
-                    }.navigationTitle("")
-                    
-                    
-                }
-                
-                ToolbarItem(placement: .principal) {
-                    
-                    Text(selection == 0 ? "記錄追蹤" : (selection == 1 ? "Ease" : "個人設定"))
-                        .font(.custom("GenSenRoundedTW-B", size:28))
-                        .foregroundColor(Color("Black_700"))
-                    
-                }
-                
-                
-                ToolbarItem(placement: .navigationBarTrailing){
-                    NavigationLink(destination: MyMenuView()
-                    ){
-                        Image("MyList")
-
-                    }.navigationTitle("")
-                }
-            }
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbarBackground(.white, for: .navigationBar)
+            
            
             
         }//nav view end

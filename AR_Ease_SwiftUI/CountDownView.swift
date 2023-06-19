@@ -13,17 +13,23 @@ let timer = Timer
 
 struct CountDownView: View {
     
+    @Binding var isTimeUp: Bool
+    
     //change count time here
     @State var counter: Int = 0
-    var countTo : Int = 30
     
+    //two var should be set to same value in production
+    var countTo : Int = 30
+    var timesUpTime : Int = 10
     
     var body: some View {
         VStack{
+            
             ZStack{
                 Image("clockBG70").resizable().frame(width: 72,height: 72)
                 //counter
                 Clock(counter: counter, countTo: countTo)
+             
                 Circle().fill(Color.clear)
                     .frame(width: 60,height: 60)
                     .overlay(Circle().stroke(Color.gray.opacity(0.2),lineWidth: 6))
@@ -54,6 +60,10 @@ struct CountDownView: View {
         .onReceive(timer){ time in
             if(self.counter < self.countTo){
                 self.counter += 1
+                
+            }
+            if counter == timesUpTime{
+                isTimeUp = true
             }
         }
         
@@ -85,7 +95,6 @@ struct Clock : View{
         }
             
     }
-        
     
     
     func counterToMinutes() -> String{
@@ -98,6 +107,6 @@ struct Clock : View{
 
 struct CountDownView_Previews: PreviewProvider {
     static var previews: some View {
-        CountDownView()
+        CountDownView(isTimeUp: .constant(false))
     }
 }

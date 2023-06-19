@@ -14,68 +14,79 @@ struct TutorialView: View {
     //for full screen func
     @Environment(\.presentationMode) var presentationMode
     
+    @State private var isTimeUp = false
+    
     var body: some View {
+        
         ZStack{
-            ViewControllerCameraView()
-                .edgesIgnoringSafeArea(.all).offset(x:7)
-            
-            VStack{
-                
-                HStack{
+            if isTimeUp{
+                GameFinishView().navigationBarHidden(true).edgesIgnoringSafeArea(.all)
+            }else{
+                ZStack{
+                    ViewControllerCameraView()
+                        .edgesIgnoringSafeArea(.all).offset(x:7)
                     
-                    Image("secondsUI").rotationEffect(.degrees(90)).offset(x:-50)
-                    Spacer()
                     VStack{
-                        Button(action: {
-                            
-                        }, label: {
-                            Image("backIcon").rotationEffect(.degrees(90)).padding(30)
-                            
-                        })
-                        Text("樹式").rotationEffect(.degrees(90))
-                            .font(.custom("GenSenRoundedTW-B", size: 24))
-                            .foregroundColor((Color("Black_800")))
                         
-                    }.offset(y:-80)
+                        HStack{
+                            
+                            Image("secondsUI").rotationEffect(.degrees(90)).offset(x:-50)
+                            Spacer()
+                            VStack{
+                                Button(action: {
+                                    
+                                }, label: {
+                                    Image("backIcon").rotationEffect(.degrees(90)).padding(30)
+                                    
+                                })
+                                Text("樹式").rotationEffect(.degrees(90))
+                                    .font(.custom("GenSenRoundedTW-B", size: 24))
+                                    .foregroundColor((Color("Black_800")))
+                                
+                            }.offset(y:-80)
+                            
+                            
+                        }//.frame(width: UIScreen.main.bounds.width, height: 200)
+                        
+                        HStack{
+                            
+                            //Image("legCheck_tree").rotationEffect(.degrees(90)).offset(x:-30)
+                            //Image("handCheck_tree").rotationEffect(.degrees(90)).offset(x:40)
+                            Text("")
+                            
+                        }.frame(width: 400, height: 200)
+                        Spacer()
+                        HStack{
+                            Spacer()
+                            CountDownView(isTimeUp: $isTimeUp).rotationEffect(.degrees(90)) .allowsHitTesting(false)
+                                .frame(width: 120, height: 120)
+                        }
+                        
+                        HStack{
+                            
+                            Image("action3").rotationEffect(.degrees(90))
+                            Image("action2").padding(-10).rotationEffect(.degrees(90))
+                            Image("action1").rotationEffect(.degrees(90))
+                            
+                        }
+                        
+                        
+                    }.navigationBarHidden(true)
                     
-                    
-                }//.frame(width: UIScreen.main.bounds.width, height: 200)
-                
-                HStack{
-                    
-                    //Image("legCheck_tree").rotationEffect(.degrees(90)).offset(x:-30)
-                    //Image("handCheck_tree").rotationEffect(.degrees(90)).offset(x:40)
-                    Text("")
-                    
-                }.frame(width: 400, height: 200)
-                Spacer()
-                HStack{
-                    Spacer()
-                    CountDownView().rotationEffect(.degrees(90)) .allowsHitTesting(false)
-                        .frame(width: 120, height: 120)
                 }
-                
-                HStack{
-                    
-                    Image("action3").rotationEffect(.degrees(90))
-                    Image("action2").padding(-10).rotationEffect(.degrees(90))
-                    Image("action1").rotationEffect(.degrees(90))
-                    
+                .onTapGesture {
+                    presentationMode.wrappedValue.dismiss()
                 }
+                .toolbar(.hidden, for: .tabBar)
                 
                 
-            }.navigationBarHidden(true)
-            
-        }
-            .onTapGesture {
-                presentationMode.wrappedValue.dismiss()
             }
-            .toolbar(.hidden, for: .tabBar)
+        }
+            
+            
         
         
     }
-    
-    
 }
 
 struct TutorialView_Previews: PreviewProvider {
