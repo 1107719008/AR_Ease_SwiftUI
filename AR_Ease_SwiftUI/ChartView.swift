@@ -10,15 +10,22 @@ import SwiftUI
 struct ChartView: View {
    
     var body: some View {
-        VStack{
-            ChartBarView()
-            ChartCardView()
-            
-            HStack{
-                Text("看更多")
+        ZStack{
+            VStack{
+                ChartBarView()
+                ChartCardView()
+                
+                HStack{
+                    Text("看更多")
+                }
             }
+         
+            
+            
+            
         }
-        
+        .background(Color("EaseGrey_100"))
+            
     }
 }
 

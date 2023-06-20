@@ -22,7 +22,8 @@ struct DataFollowView: View {
             VStack{
                 
                 ZStack{
-                    Image("RWhite").resizable().ignoresSafeArea().frame(width:.infinity,height:115)
+                    Image("RWhite").resizable().ignoresSafeArea().frame(width:.infinity,height:38)
+                    Image("BlueLine").offset(y:19)
                     VStack{
 //                        Text("記錄追蹤")
 //                            .font(.custom("GenSenRoundedTW-B", size:32))
@@ -69,7 +70,7 @@ struct DataFollowView: View {
                             
                         }
                     }
-                }
+                }.padding(.top,10)
                 
                 ScrollView(.vertical,showsIndicators: false){
                     VStack(spacing: 20){
@@ -97,7 +98,7 @@ struct DataFollowView: View {
             }
             
             
-        }.background(Color("EaseGrey_100"))
+        }//.background(Color("EaseGrey_100"))
         
     }
     

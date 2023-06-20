@@ -53,6 +53,7 @@ struct ContentView: View {
                                 Text(selection == 0 ? "記錄追蹤" : (selection == 1 ? "Ease" : "個人設定"))
                                     .font(.custom("GenSenRoundedTW-B", size:28))
                                     .foregroundColor(Color("Black_700"))
+                                    
                                 
                             }
                             
@@ -95,6 +96,7 @@ struct ContentView: View {
                                     Text(selection == 0 ? "記錄追蹤" : (selection == 1 ? "Ease" : "個人設定"))
                                         .font(.custom("GenSenRoundedTW-B", size:28))
                                         .foregroundColor(Color("Black_700"))
+                                       
                                     
                                 }
                                 
@@ -107,7 +109,7 @@ struct ContentView: View {
                                     }.navigationTitle("")
                                 }
                             }
-                        .navigationBarTitleDisplayMode(.inline)
+                            .navigationBarTitleDisplayMode(.inline)
                         .toolbarBackground(.white, for: .navigationBar)
                     }
                         .tabItem {
@@ -140,6 +142,7 @@ struct ContentView: View {
                                     .font(.custom("GenSenRoundedTW-B", size:28))
                                     .foregroundColor(Color("Black_700"))
                                 
+                                
                             }
                             
                             
@@ -153,6 +156,7 @@ struct ContentView: View {
                         }
                         .navigationBarTitleDisplayMode(.inline)
                         .toolbarBackground(.white, for: .navigationBar)
+                        
                     }
                         .tabItem{
                             if selection == 2{

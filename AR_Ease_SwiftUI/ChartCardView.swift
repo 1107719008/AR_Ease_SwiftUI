@@ -22,20 +22,27 @@ struct ChartCardView: View {
         
         VStack {
             HStack{
-                Image("circleChartCard").shadow(radius: 0.5)
+                Image("80per")//.shadow(radius: 0.5)
+                ZStack{
+                    
+                    Image(imageFlipShoulder)
+                        .aspectRatio(contentMode: .fit)
+                        .scaleEffect(x: isFlippedShoulder ? -1 : 1, y: 1, anchor: .center)
+                        .rotation3DEffect(.degrees(isFlippedShoulder ? 180 : 0), axis: (x: 0, y: 1, z: 0))
+                        .onTapGesture {
+                            withAnimation(.easeInOut) {
+                                isFlippedShoulder.toggle()
+                            }
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                                imageFlipShoulder = isFlippedShoulder ? "ShoulderCardB" : "ShoulderCardF"
+                            }
+                        }
+                 
+                    Image("iconChoseMost").offset(x:83,y:-47)
+                     
+                    
+                }
                 
-                Image(imageFlipShoulder)
-                    .aspectRatio(contentMode: .fit)
-                    .scaleEffect(x: isFlippedShoulder ? -1 : 1, y: 1, anchor: .center)
-                    .rotation3DEffect(.degrees(isFlippedShoulder ? 180 : 0), axis: (x: 0, y: 1, z: 0))
-                    .onTapGesture {
-                        withAnimation(.easeInOut) {
-                            isFlippedShoulder.toggle()
-                        }
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                            imageFlipShoulder = isFlippedShoulder ? "ShoulderCardB" : "ShoulderCardF"
-                        }
-                    }
             }
             HStack{
                 Image(imageFlipNeck)

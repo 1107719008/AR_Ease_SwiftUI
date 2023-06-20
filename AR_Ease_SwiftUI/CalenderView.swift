@@ -59,7 +59,7 @@ struct CalenderView: View {
                         //                        .font(.callout)
                         //                        .fontWeight(.semibold)
                             .font(.custom("GenSenRoundedTW-R", size:12))
-                            .frame(maxWidth: .infinity)
+                            .frame(maxWidth: .infinity).padding(0)
                     }
                 }
                 
@@ -68,17 +68,32 @@ struct CalenderView: View {
                 let columns = Array(repeating: GridItem(.flexible()),count: 7)
                 LazyVGrid(columns: columns,spacing: 15) {
                     ForEach(extractDate()){value in
+                        
                         CardView(value: value)
+                            .background(
+                            
+                                Circle()
+                                    .fill(Color("EaseBlue"))
+                                    .padding(.horizontal,8)
+                                    .opacity(isSameDay(date1: value.date, date2: currentDate) ? 1 : 0)
+                            )
+                            .onTapGesture {
+                                currentDate = value.date
+                            }
+                        
+                        
                     }
                     
                 }
             }.background(.white)
                 .padding(.bottom,0)
-                .cornerRadius(10).frame(width: 390)
+                .cornerRadius(10).frame(width: 355)
+                
             
             //add calender below object here
             CalenderBelowView()
                 .padding(.top, 0.0)
+                .offset(y:-40)
             
         }
         .onChange(of: currentMonth){ newValue in
@@ -95,15 +110,46 @@ struct CalenderView: View {
         VStack(alignment:.center){
             
             if value.day != -1{
-                Text("\(value.day)")
-                    .font(.custom("GenSenRoundedTW-B", size:12))
+                
+                if let record = records.first(where: { record in
+                    return isSameDay(date1: record.recorddate, date2: value.date)
+                }){
+                    Text("\(value.day)")
+                        .font(.custom("GenSenRoundedTW-B", size:12))
+                        .foregroundColor(isSameDay(date1: record.recorddate, date2: currentDate) ? .white : .primary)
+                        .frame(maxWidth: .infinity)
+                    
+                    Spacer()
+                    
+                    Circle()
+                        .fill(isSameDay(date1: record.recorddate, date2: currentDate) ? .white :
+                                Color("EaseBlue") )
+                        .frame(width: 8,height: 8)
+                    
+                    
+                }else{
+                    Text("\(value.day)")
+                        .font(.custom("GenSenRoundedTW-B", size:12))
+                     .foregroundColor(isSameDay(date1: value.date, date2: currentDate) ? .white : .primary)
+                     .frame(maxWidth: .infinity)
+                    
+                    Spacer()
+                    
+                }
             }
         }
-        .padding(.vertical,8)
-        .frame(height: 32, alignment: .center)
+        .frame(height: 35, alignment: .center)
         
     }
     
+    //checking dates
+    func isSameDay(date1: Date,date2: Date) -> Bool{
+        let calendar = Calendar.current
+        
+        return calendar.isDate(date1, inSameDayAs: date2)
+        
+        
+    }
     
     
     //extract year & month
