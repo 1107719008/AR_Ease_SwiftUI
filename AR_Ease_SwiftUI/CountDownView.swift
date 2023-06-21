@@ -24,10 +24,15 @@ struct CountDownView: View {
     var timesUpTime : Int = 30
     
     var body: some View {
-        VStack{
+        VStack(alignment: .trailing){
+           
+            
+       
+            
+            
             
             HStack{
-                Spacer()
+//                Spacer()
                 ZStack{
                     Image("clockBG70").resizable().frame(width: 72,height: 72)
                     //counter
@@ -62,7 +67,7 @@ struct CountDownView: View {
             
             Spacer()
             
-            Image( timeAlmostUp ? "preview1" : "preview2")
+            Image( timeAlmostUp ? "preview2" : "preview1")
             
             
         }

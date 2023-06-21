@@ -24,7 +24,7 @@ struct TutorialView: View {
             }else{
                 ZStack{
                     ViewControllerCameraView()
-                        .edgesIgnoringSafeArea(.all).offset(x:7)
+                        .edgesIgnoringSafeArea(.all).offset(x:3)
                     
                     VStack{
                         
@@ -46,7 +46,7 @@ struct TutorialView: View {
                             }.offset(y:-80)
                             
                             
-                        }//.frame(width: UIScreen.main.bounds.width, height: 200)
+                        }.offset(y:35)
                         
                         HStack{
                             
@@ -56,11 +56,12 @@ struct TutorialView: View {
                             
                         }.frame(width: 400, height: 200)
                         Spacer()
+                        
                         HStack{
-                            Spacer()
-                            CountDownView(isTimeUp: $isTimeUp).rotationEffect(.degrees(90)) .allowsHitTesting(false)
-                                .frame(width: 120, height: 120)
-                        }
+                            
+                            CountDownView(isTimeUp: $isTimeUp).allowsHitTesting(false)
+                                .frame(width: 200, height: 350).rotationEffect(.degrees(90))
+                        }.offset(y:75)
                         
                         //ver 1. prreview
 //                        HStack{

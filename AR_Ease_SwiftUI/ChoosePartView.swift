@@ -243,6 +243,7 @@ struct ChoosePartView: View {
                                         sumTime += 1
                                     }else{
                                         sum -= 1
+                                        sumTime -= 1
                                     }
                                     
                                     
@@ -261,8 +262,10 @@ struct ChoosePartView: View {
                                     isChoseActionN2.toggle()
                                     if isChoseActionN2 {
                                         sum += 1
+                                        sumTime += 0.5
                                     }else{
                                         sum -= 1
+                                        sumTime -= 0.5
                                     }
                                 }, label: {
                                     if isChoseActionN2{
@@ -279,8 +282,10 @@ struct ChoosePartView: View {
                                     isChoseActionN3.toggle()
                                     if isChoseActionN3 {
                                         sum += 1
+                                        sumTime += 1
                                     }else{
                                         sum -= 1
+                                        sumTime -= 1
                                     }
                                 }, label: {
                                     if isChoseActionN3{
@@ -299,8 +304,10 @@ struct ChoosePartView: View {
                                     isChoseActionS1.toggle()
                                     if isChoseActionS1 {
                                         sum += 1
+                                        sumTime += 1
                                     }else{
                                         sum -= 1
+                                        sumTime -= 1
                                     }
                                     
                                 }, label: {
@@ -317,9 +324,12 @@ struct ChoosePartView: View {
                                     
                                     isChoseActionS2.toggle()
                                     if isChoseActionS2 {
+                                        
                                         sum += 1
+                                        sumTime += 1
                                     }else{
                                         sum -= 1
+                                        sumTime -= 1
                                     }
                                     
                                 }, label: {
@@ -415,8 +425,10 @@ struct ChoosePartView: View {
                                     isChoseActionB1.toggle()
                                     if isChoseActionB1 {
                                         sum += 1
+                                        sumTime += 1
                                     }else{
                                         sum -= 1
+                                        sumTime -= 1
                                     }
                                     
                                 }, label: {
@@ -434,8 +446,10 @@ struct ChoosePartView: View {
                                     isChoseActionB2.toggle()
                                     if isChoseActionB2 {
                                         sum += 1
+                                        sumTime += 0.5
                                     }else{
                                         sum -= 1
+                                        sumTime -= 0.5
                                     }
                                     
                                 }, label: {
@@ -453,8 +467,10 @@ struct ChoosePartView: View {
                                     isChoseActionB3.toggle()
                                     if isChoseActionB3 {
                                         sum += 1
+                                        sumTime += 1
                                     }else{
                                         sum -= 1
+                                        sumTime -= 1
                                     }
                                     
                                 }, label: {
@@ -472,13 +488,15 @@ struct ChoosePartView: View {
                                     isChoseActionB1.toggle()
                                     if isChoseActionB1 {
                                         sum += 1
+                                        sumTime += 1
                                     }else{
                                         sum -= 1
+                                        sumTime += 1
                                     }
                                     
                                 }, label: {
                                     if isChoseActionB1{
-                                        Image("A2")
+                                        Image("A1")
                                         
                                     }else{
                                         Image("A1")
@@ -491,13 +509,15 @@ struct ChoosePartView: View {
                                     isChoseActionB2.toggle()
                                     if isChoseActionB2 {
                                         sum += 1
+                                        sumTime += 0.5
                                     }else{
                                         sum -= 1
+                                        sumTime -= 0.5
                                     }
                                     
                                 }, label: {
                                     if isChoseActionB2{
-                                        Image("B2")
+                                        Image("B1")
                                         
                                     }else{
                                         Image("B1")
@@ -511,8 +531,10 @@ struct ChoosePartView: View {
                                     isChoseActionC1.toggle()
                                     if isChoseActionC1 {
                                         sum += 1
+                                        sumTime += 1
                                     }else{
                                         sum -= 1
+                                        sumTime -= 1
                                     }
                                     
                                 }, label: {
@@ -530,8 +552,10 @@ struct ChoosePartView: View {
                                     isChoseActionC2.toggle()
                                     if isChoseActionC2 {
                                         sum += 1
+                                        sumTime += 0.4
                                     }else{
                                         sum -= 1
+                                        sumTime -= 0.4
                                     }
                                     
                                 }, label: {
@@ -544,25 +568,7 @@ struct ChoosePartView: View {
                                     }
                                     
                                 })
-                                Button(action: {
-                                    
-                                    isChoseActionC3.toggle()
-                                    if isChoseActionC3 {
-                                        sum += 1
-                                    }else{
-                                        sum -= 1
-                                    }
-                                    
-                                }, label: {
-                                    if isChoseActionC3{
-                                        Image("D2")
-                                        
-                                    }else{
-                                        Image("D1")
-                                        
-                                    }
-                                    
-                                })
+                                
                             }else{
                                 //noting chosen
                                 

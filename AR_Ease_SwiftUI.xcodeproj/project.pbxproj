@@ -29,6 +29,7 @@
 		9A2616D52A3758ED007FF28A /* ChoosePartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2616D42A3758ED007FF28A /* ChoosePartView.swift */; };
 		9A2616D72A375E68007FF28A /* PersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2616D62A375E68007FF28A /* PersonView.swift */; };
 		9A4CE0862A42E6D80076015D /* ActionListDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4CE0852A42E6D80076015D /* ActionListDemo.swift */; };
+		9A4CE0882A43198D0076015D /* MyMenuSetUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4CE0872A43198D0076015D /* MyMenuSetUp.swift */; };
 		9A9689F12A41D1EA00751A90 /* SiteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9689F02A41D1EA00751A90 /* SiteView.swift */; };
 		9A9689F32A42CA2500751A90 /* ChartBarViewDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9689F22A42CA2500751A90 /* ChartBarViewDemo.swift */; };
 		9A9689F62A42CD0300751A90 /* MayCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9689F52A42CD0300751A90 /* MayCalendar.swift */; };
@@ -94,6 +95,7 @@
 		9A2616D42A3758ED007FF28A /* ChoosePartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePartView.swift; sourceTree = "<group>"; };
 		9A2616D62A375E68007FF28A /* PersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonView.swift; sourceTree = "<group>"; };
 		9A4CE0852A42E6D80076015D /* ActionListDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionListDemo.swift; sourceTree = "<group>"; };
+		9A4CE0872A43198D0076015D /* MyMenuSetUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMenuSetUp.swift; sourceTree = "<group>"; };
 		9A9689F02A41D1EA00751A90 /* SiteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteView.swift; sourceTree = "<group>"; };
 		9A9689F22A42CA2500751A90 /* ChartBarViewDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartBarViewDemo.swift; sourceTree = "<group>"; };
 		9A9689F52A42CD0300751A90 /* MayCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MayCalendar.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				9AE50F122A3CE237004F7F06 /* GameFinishView.swift */,
 				9AD404942A40BB5A00A30459 /* FinishResultView.swift */,
 				9AD404922A3F629900A30459 /* MyMenuView.swift */,
+				9A4CE0872A43198D0076015D /* MyMenuSetUp.swift */,
 				9A2616932A330401007FF28A /* Assets.xcassets */,
 				9A2616CD2A37164E007FF28A /* GenSenRounded-R.ttc */,
 				9A2616CB2A37163E007FF28A /* GenSenRounded-M.ttc */,
@@ -414,6 +417,7 @@
 				9AE50F132A3CE237004F7F06 /* GameFinishView.swift in Sources */,
 				9AE50F072A3ADA26004F7F06 /* DateValue.swift in Sources */,
 				9A9689FC2A42CD2F00751A90 /* JuneChart.swift in Sources */,
+				9A4CE0882A43198D0076015D /* MyMenuSetUp.swift in Sources */,
 				9A2616D72A375E68007FF28A /* PersonView.swift in Sources */,
 				9AE50F042A3ACDAC004F7F06 /* CalenderView.swift in Sources */,
 				9A2616CA2A36E3E0007FF28A /* TutorialView.swift in Sources */,
