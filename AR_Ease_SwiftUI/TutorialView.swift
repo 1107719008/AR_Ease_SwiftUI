@@ -62,13 +62,14 @@ struct TutorialView: View {
                                 .frame(width: 120, height: 120)
                         }
                         
-                        HStack{
-                            
-                            Image("action3").rotationEffect(.degrees(90))
-                            Image("action2").padding(-10).rotationEffect(.degrees(90))
-                            Image("action1").rotationEffect(.degrees(90))
-                            
-                        }
+                        //ver 1. prreview
+//                        HStack{
+//
+//                            Image("action3").rotationEffect(.degrees(90))
+//                            Image("action2").padding(-10).rotationEffect(.degrees(90))
+//                            Image("action1").rotationEffect(.degrees(90))
+//
+//                        }
                         
                         
                     }.navigationBarHidden(true)

@@ -13,6 +13,7 @@ let timer = Timer
 
 struct CountDownView: View {
     
+    @State var timeAlmostUp: Bool = false
     @Binding var isTimeUp: Bool
     
     //change count time here
@@ -20,47 +21,63 @@ struct CountDownView: View {
     
     //two var should be set to same value in production
     var countTo : Int = 30
-    var timesUpTime : Int = 10
+    var timesUpTime : Int = 30
     
     var body: some View {
         VStack{
             
-            ZStack{
-                Image("clockBG70").resizable().frame(width: 72,height: 72)
-                //counter
-                Clock(counter: counter, countTo: countTo)
-             
-                Circle().fill(Color.clear)
-                    .frame(width: 60,height: 60)
-                    .overlay(Circle().stroke(Color.gray.opacity(0.2),lineWidth: 6))
-                
-                Circle()
-                    .fill(Color.clear)
-                    .frame(width: 60,height: 60)
-                    .overlay(
-                        Circle().trim(from:0, to: progessBar())
-                            .stroke(
-                                style: StrokeStyle(
-                                    lineWidth: 6,
-                                    lineCap: .round,
-                                    lineJoin: .round
+            HStack{
+                Spacer()
+                ZStack{
+                    Image("clockBG70").resizable().frame(width: 72,height: 72)
+                    //counter
+                    Clock(counter: counter, countTo: countTo)
+                    
+                    Circle().fill(Color.clear)
+                        .frame(width: 60,height: 60)
+                        .overlay(Circle().stroke(Color.gray.opacity(0.2),lineWidth: 6))
+                    
+                    Circle()
+                        .fill(Color.clear)
+                        .frame(width: 60,height: 60)
+                        .overlay(
+                            Circle().trim(from:0, to: progessBar())
+                                .stroke(
+                                    style: StrokeStyle(
+                                        lineWidth: 6,
+                                        lineCap: .round,
+                                        lineJoin: .round
+                                    )
                                 )
-                            )
-                            .foregroundColor(
-                                (completed() ? Color.green : Color.yellow)
-                            ).animation(
-                                .easeInOut(duration: 0.2)
-                            )
-                    )
-                
-                
+                                .foregroundColor(
+                                    (timeAlmostUp ? (Color("EaseYellow")) : completed() ? Color.green : (Color("EaseBlue")))
+                                ).animation(
+                                    .easeInOut(duration: 0.2)
+                                )
+                        )
+                    
+                    
+                }
             }
+            
+            Spacer()
+            
+            Image( timeAlmostUp ? "preview1" : "preview2")
+            
+            
         }
         
         .onReceive(timer){ time in
             if(self.counter < self.countTo){
                 self.counter += 1
                 
+            }
+            if counter >= 25 {
+                timeAlmostUp = true
+                
+               
+            }else{
+                timeAlmostUp = false
             }
             if counter == timesUpTime{
                 isTimeUp = true

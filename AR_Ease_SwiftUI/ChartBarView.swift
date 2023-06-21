@@ -27,13 +27,14 @@ struct ChartBarView: View {
                     HStack{
                         Text("時間 min").fontWeight(.semibold)
                         
-                        Picker("",selection:$currentTab ){
-                            Text("7days").tag("7 Days")
-                            Text("weeks").tag("Week")
-                            Text("Month").tag("Month")
+                        Picker("",selection:$currentTab){
+                            Text("天").tag("7 Days")
+                            Text("週").tag("Week")
+                            Text("月").tag("Month")
                         }
                         .pickerStyle(.segmented)
-                        .padding(.leading,70)
+                        .padding(.leading,10)
+                        
                     }
                     
                     let totalValue = sampleChart.reduce(0.0) { partialResult, item in
@@ -116,7 +117,7 @@ struct ChartBarView: View {
            
         }
         .frame(height:309)
-        .chartYScale(domain: 0...(max+2))
+        .chartYScale(domain: 0...(max+20))
         //highlight chosen bar
         .chartOverlay(content: { proxy in
             GeometryReader{ innerProxy in
