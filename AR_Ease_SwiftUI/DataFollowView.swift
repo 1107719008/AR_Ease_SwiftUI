@@ -17,88 +17,99 @@ struct DataFollowView: View {
     var body: some View {
         //two mode - CalendarView/ChartView
         
-        ZStack{//for change 追蹤與日曆
-            
-            VStack{
+            ZStack{//for change 追蹤與日曆
                 
-                ZStack{
-                    Image("RWhite").resizable().ignoresSafeArea().frame(width:.infinity,height:38)
-                    Image("BlueLine").offset(y:19)
-                    VStack{
-//                        Text("記錄追蹤")
-//                            .font(.custom("GenSenRoundedTW-B", size:32))
-//                            .foregroundColor(Color("Black_700"))
-//                            .padding(.bottom, 38)
-//                            .offset(x:0,y:0)
-                        
-                        //top switch card
-                        HStack(spacing:0){
+                VStack{
+                    
+                    ZStack{
+//                        Image("RWhite").resizable().ignoresSafeArea().frame(height:48)
+                        VStack{
                             
-                            Button{
-                                withAnimation {
-                                    whichView = 0
+                            Image("BlueLine").offset(y:29)
+                        }
+                        VStack{
+                            //                        Text("記錄追蹤")
+                            //                            .font(.custom("GenSenRoundedTW-B", size:32))
+                            //                            .foregroundColor(Color("Black_700"))
+                            //                            .padding(.bottom, 38)
+                            //                            .offset(x:0,y:0)
+                            
+                            //top switch card
+                            HStack(spacing:0){
+                                
+                                Button{
+                                    withAnimation {
+                                        whichView = 0
+                                    }
+                                }label: {
+                                    if whichView == 0 {
+                                        Image("calendarPress")
+                                        
+                                    }else{
+                                        Image("calendarUnpress")
+                                    }
                                 }
-                            }label: {
-                                if whichView == 0 {
-                                    Image("calendarPress")
+                                .padding(.leading, 24.0)
+                                Button{
+                                    withAnimation {
+                                        whichView = 1
+                                    }
+                                }label: {
+                                    if whichView == 1 {
+                                        Image("followCardPress")
+                                        
+                                    }else{
+                                        Image("followCardUnpress")
+                                    }
                                     
-                                }else{
-                                    Image("calendarUnpress")
-                                }
-                            }
-                            .padding(.leading, 24.0)
-                            Button{
-                                withAnimation {
-                                    whichView = 1
-                                }
-                            }label: {
-                                if whichView == 1 {
-                                    Image("followCardPress")
-                                    
-                                }else{
-                                    Image("followCardUnpress")
                                 }
                                 
+                                Spacer()
+                                HStack(alignment: .bottom){
+                                    Text("連續").font(.custom("GenSenRoundedTW-B", size:16))
+                                    Text("21").font(.custom("GenSenRoundedTW-B", size:24))
+                                    Text("天").font(.custom("GenSenRoundedTW-B", size:16))
+                                }.padding(.trailing, 15.0).foregroundColor(Color("Blue_700"))
+                                
+                            }.offset(y:10)
+                        }
+                       
+                    }.padding(.top,5)
+                    
+                    ScrollView(.vertical,showsIndicators: false){
+                        VStack(spacing: 20){
+                            if whichView == 0{
+                                VStack{
+                                    ChartBarViewDemo()
+                                        .padding(0)
+                                    //CalenderView(currentDate: $currentDate)
+                                        //.background(Color("EaseGrey_100"))
+                                    //.matchedGeometryEffect(id: "chart", in: animation)
+                                    //.transition(.move(edge: .leading))
+                                    //.animation(.easeInOut(duration: 0.2))
+                                    CalenderBelowView()//.background(Color("EaseGrey_100"))
+                                        .padding(0)
+                                        .offset(y:-20)
+                                }.background(Color("EaseGrey_100"))
+                                
+                            }else{
+                                ChartView()
+                                    .background(Color("EaseGrey_100"))
+                                //.matchedGeometryEffect(id: "chart", in: animation)
+                                //.transition(.move(edge: .leading))
+                                //.animation(.easeInOut(duration: 0.2))
                             }
                             
-                            Spacer()
-                            HStack(alignment: .bottom){
-                                Text("連續").font(.custom("GenSenRoundedTW-B", size:16))
-                                Text("21").font(.custom("GenSenRoundedTW-B", size:24))
-                                Text("天").font(.custom("GenSenRoundedTW-B", size:16))
-                            }.padding(.trailing, 15.0).foregroundColor(Color("Blue_700"))
                             
                         }
                     }
-                }.padding(.top,10)
-                
-                ScrollView(.vertical,showsIndicators: false){
-                    VStack(spacing: 20){
-                        if whichView == 0{
-                            CalenderView(currentDate: $currentDate)
-                                .background(Color("EaseGrey_100"))
-                                //.matchedGeometryEffect(id: "chart", in: animation)
-                                //.transition(.move(edge: .leading))
-                                //.animation(.easeInOut(duration: 0.2))
-                            
-                        }else{
-                            ChartView()
-                                .background(Color("EaseGrey_100"))
-                                //.matchedGeometryEffect(id: "chart", in: animation)
-                                //.transition(.move(edge: .leading))
-                                //.animation(.easeInOut(duration: 0.2))
-                        }
-                        
-                        
-                    }
+                    
+                    
+                    
                 }
                 
-                
-                
             }
-            
-            
-        }//.background(Color("EaseGrey_100"))
+        //.background(Color("EaseGrey_100"))
         
     }
     

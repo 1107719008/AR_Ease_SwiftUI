@@ -21,7 +21,7 @@ struct ChartValueViewDemo: View {
                     .tag(1)
                 
             }.tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
-                .frame(width: 400,height: 500)
+                .frame(width: 400,height: 330)
                 .cornerRadius(10)
             //.shadow(color:.gray,radius: 5,x: 2,y:2)
                 //.position(x:195,y:150)

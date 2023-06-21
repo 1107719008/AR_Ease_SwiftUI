@@ -37,7 +37,8 @@ struct ContentView: View {
                 //tab view
                 TabView(selection: $selection){
                     NavigationView{
-                        DataFollowView().toolbar{
+                        DataFollowView()
+                            .toolbar{
                             ToolbarItem(placement: .navigationBarLeading){
                                 NavigationLink(destination: GamePageView()
                                 ){
@@ -78,6 +79,7 @@ struct ContentView: View {
                                 Image("Record_unpress")
                             }
                         }.tag(0)
+                    
                     NavigationView{
                         HomeView()
                             .toolbar{

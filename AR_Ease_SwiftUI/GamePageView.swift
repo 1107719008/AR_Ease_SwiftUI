@@ -10,7 +10,7 @@ import SwiftUI
 struct GamePageView: View {
     var body: some View {
         Image("GamePageDemo")
-            .padding(.top, 35.0)
+            .padding(.top, 70)
     }
 }
 

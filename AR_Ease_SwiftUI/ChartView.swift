@@ -12,12 +12,11 @@ struct ChartView: View {
     var body: some View {
         ZStack{
             VStack{
-                ChartBarView()
+                ChartValueViewDemo()
+                //ChartBarView()
                 ChartCardView()
                 
-                HStack{
-                    Text("看更多")
-                }
+              Spacer()
             }
          
             
