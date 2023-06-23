@@ -69,7 +69,7 @@ struct DataFollowView: View {
                                     Text("連續").font(.custom("GenSenRoundedTW-B", size:16))
                                     Text("21").font(.custom("GenSenRoundedTW-B", size:24))
                                     Text("天").font(.custom("GenSenRoundedTW-B", size:16))
-                                }.padding(.trailing, 15.0).foregroundColor(Color("Blue_700"))
+                                }.padding(.trailing, 15.0).foregroundColor(Color("EaseBlue"))
                                 
                             }.offset(y:10)
                         }

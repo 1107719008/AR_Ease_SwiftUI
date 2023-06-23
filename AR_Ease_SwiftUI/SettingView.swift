@@ -14,6 +14,7 @@ struct SettingView: View {
     @State private var isSoundTutorial = false
     
     @State var isSelect: String = "Easy"
+  
     var body: some View {
         
         
@@ -22,7 +23,7 @@ struct SettingView: View {
             HStack{
                 VStack{
                     Image("profileA").padding(12)
-                    Text("田晴瑄").font(.custom("GenSenRoundedTW-B", size:22))
+                    Text("阿翰").font(.custom("GenSenRoundedTW-B", size:22))
                         .foregroundColor(Color("Black_700")).padding(.bottom,10)
                 }
             }
@@ -39,9 +40,9 @@ struct SettingView: View {
                 }
                 //muti toggle btn
                 Picker("",selection:$isSelect){
-                    Text("入門").tag("Easy")
-                    Text("基礎").tag("Basic")
-                    Text("進階").tag("Difficult")
+                    Text("入門").tag("Easy").font(.custom("GenSenRoundedTW-B",size: 13))
+                    Text("基礎").tag("Basic").font(.custom("GenSenRoundedTW-B",size: 13))
+                    Text("進階").tag("Difficult").font(.custom("GenSenRoundedTW-B",size: 13))
                 }
                 .pickerStyle(.segmented)
                 .padding(.horizontal,24)
@@ -63,7 +64,7 @@ struct SettingView: View {
                             HStack {
                                 Image("iconPerson")
                                     .foregroundColor(.blue)
-                                Text("基本資料")
+                                Text("基本資料").font(.custom("GenSenRoundedTW-B",size: 15)).foregroundColor(Color("Black_700"))
                                 Spacer ()
                                 //Text("1")
                                 Image(systemName: "chevron.forward")
@@ -72,7 +73,7 @@ struct SettingView: View {
                             HStack {
                                 Image("iconNotify")
                                     .foregroundColor(.blue)
-                                Text("提醒運動")
+                                Text("提醒運動").font(.custom("GenSenRoundedTW-B",size: 15)).foregroundColor(Color("Black_700"))
                                 Spacer ()
                                 //Text("1")
                                 Image(systemName: "chevron.forward")
@@ -81,7 +82,7 @@ struct SettingView: View {
                             HStack {
                                 Image("iconSound")
                                     .foregroundColor(Color("Black_700"))
-                                Text("聲音與音效")
+                                Text("聲音與音效").font(.custom("GenSenRoundedTW-B",size: 15)).foregroundColor(Color("Black_700"))
                                 Spacer ()
                                 //Text("1")
                                 Image(systemName: "chevron.forward")
@@ -90,7 +91,7 @@ struct SettingView: View {
                             HStack {
                                 Image("iconLanguage")
                                     .foregroundColor(Color("Black_700"))
-                                Text("語言選擇")
+                                Text("語言選擇").font(.custom("GenSenRoundedTW-B",size: 15)).foregroundColor(Color("Black_700"))
                                 Spacer ()
                                 //Text("1")
                                 Image(systemName: "chevron.forward")
@@ -98,11 +99,11 @@ struct SettingView: View {
                             }
                             HStack{
                                 Image("iconMic")
-                                Toggle("語音教學", isOn: $isSoundTutorial)
+                                Toggle("語音教學", isOn: $isSoundTutorial).font(.custom("GenSenRoundedTW-B",size: 15)).foregroundColor(Color("Black_700")).tint(Color("EaseBlue"))
                             }
                             HStack{
                                 Image("healthIcon")
-                                Toggle("Apple Health", isOn: $isHealthKit)
+                                Toggle("Apple Health", isOn: $isHealthKit).font(.custom("GenSenRoundedTW-B",size: 15)).foregroundColor(Color("Black_700")).tint(Color("EaseBlue"))
                             }
                             
                             

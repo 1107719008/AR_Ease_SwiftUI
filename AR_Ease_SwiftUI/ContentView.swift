@@ -13,63 +13,68 @@ struct ContentView: View {
     
     @EnvironmentObject var bodyChosen: BodyPartSharedState
     
+    //@State var toggleHomePage: Bool = false
+    @EnvironmentObject var isNotLogged: UserMood
     
     //init the tab bar bg
     init() {
-            let appearance = UITabBarAppearance()
-           
-            appearance.configureWithTransparentBackground()
+        let appearance = UITabBarAppearance()
         
-            let backgroundImageInsets = UIEdgeInsets(top: -5, left: 0, bottom: 0, right: 0)
-            appearance.backgroundImage = UIImage(named: "tabBarShadow")?.resizableImage(withCapInsets: backgroundImageInsets)
-            let tabBar = UITabBar.appearance()
-            tabBar.standardAppearance = appearance
-            tabBar.scrollEdgeAppearance = appearance
-        }
+        appearance.configureWithTransparentBackground()
+        
+        let backgroundImageInsets = UIEdgeInsets(top: -5, left: 0, bottom: 0, right: 0)
+        appearance.backgroundImage = UIImage(named: "tabBarShadow")?.resizableImage(withCapInsets: backgroundImageInsets)
+        let tabBar = UITabBar.appearance()
+        tabBar.standardAppearance = appearance
+        tabBar.scrollEdgeAppearance = appearance
+    }
     
 
  
     
     
     var body: some View {
-        NavigationView{
-            HStack{
-                //tab view
-                TabView(selection: $selection){
-                    NavigationView{
-                        DataFollowView()
-                            .toolbar{
-                            ToolbarItem(placement: .navigationBarLeading){
-                                NavigationLink(destination: GamePageView()
-                                ){
-                                    Image("GameIcon")
+        
+        if isNotLogged.isNotLoggedIn{
+            
+            NavigationView{
+                HStack{
+                    //tab view
+                    TabView(selection: $selection){
+                        NavigationView{
+                            DataFollowView()
+                                .toolbar{
+                                    ToolbarItem(placement: .navigationBarLeading){
+                                        NavigationLink(destination: GamePageView()
+                                        ){
+                                            Image("GameIcon")
+                                            
+                                        }.navigationTitle("")
+                                        
+                                        
+                                    }
                                     
-                                }.navigationTitle("")
-                                
-                                
-                            }
-                            
-                            ToolbarItem(placement: .principal) {
-                                
-                                Text(selection == 0 ? "記錄追蹤" : (selection == 1 ? "Ease" : "個人設定"))
-                                    .font(.custom("GenSenRoundedTW-B", size:28))
-                                    .foregroundColor(Color("Black_700"))
+                                    ToolbarItem(placement: .principal) {
+                                        
+                                        Text(selection == 0 ? "記錄追蹤" : (selection == 1 ? "Ease" : "個人設定"))
+                                            .font(.custom("GenSenRoundedTW-B", size:28))
+                                            .foregroundColor(Color("Black_700"))
+                                        
+                                        
+                                    }
                                     
-                                
-                            }
-                            
-                            
-                            ToolbarItem(placement: .navigationBarTrailing){
-                                NavigationLink(destination: MyMenuView()
-                                ){
-                                    Image("MyList")
-
-                                }.navigationTitle("")
-                            }
+                                    
+                                    ToolbarItem(placement: .navigationBarTrailing){
+                                        NavigationLink(destination: MyMenuView()
+                                        ){
+                                            Image("MyList")
+                                            
+                                        }.navigationTitle("")
+                                    }
+                                }
+                                .navigationBarTitleDisplayMode(.inline)
+                                .toolbarBackground(.white, for: .navigationBar)
                         }
-                        .navigationBarTitleDisplayMode(.inline)
-                        .toolbarBackground(.white, for: .navigationBar)
-                    }
                         .tabItem {
                             if selection == 0{
                                 Text("")
@@ -79,10 +84,55 @@ struct ContentView: View {
                                 Image("Record_unpress")
                             }
                         }.tag(0)
-                    
-                    NavigationView{
-                        HomeView()
-                            .toolbar{
+                        
+                        NavigationView{
+                            HomeView()
+                                .toolbar{
+                                    ToolbarItem(placement: .navigationBarLeading){
+                                        NavigationLink(destination: GamePageView()
+                                        ){
+                                            Image("GameIcon")
+                                            
+                                        }.navigationTitle("")
+                                        
+                                        
+                                    }
+                                    
+                                    ToolbarItem(placement: .principal) {
+                                        
+                                        Text(selection == 0 ? "記錄追蹤" : (selection == 1 ? "Ease" : "個人設定"))
+                                            .font(.custom("GenSenRoundedTW-B", size:28))
+                                            .foregroundColor(Color("Black_700"))
+                                        
+                                        
+                                    }
+                                    
+                                    
+                                    ToolbarItem(placement: .navigationBarTrailing){
+                                        NavigationLink(destination: MyMenuView()
+                                        ){
+                                            Image("MyList")
+                                            
+                                        }.navigationTitle("")
+                                    }
+                                }
+                                .navigationBarTitleDisplayMode(.inline)
+                                .toolbarBackground(.white, for: .navigationBar)
+                        }
+                        .tabItem {
+                            if selection == 1{
+                                Text("")
+                                Image("Home_press")
+                                
+                            }else{
+                                Text("")
+                                Image("Home_unpress")
+                            }
+                            
+                        }.tag(1)
+                        
+                        NavigationView{
+                            SettingView().toolbar{
                                 ToolbarItem(placement: .navigationBarLeading){
                                     NavigationLink(destination: GamePageView()
                                     ){
@@ -98,7 +148,7 @@ struct ContentView: View {
                                     Text(selection == 0 ? "記錄追蹤" : (selection == 1 ? "Ease" : "個人設定"))
                                         .font(.custom("GenSenRoundedTW-B", size:28))
                                         .foregroundColor(Color("Black_700"))
-                                       
+                                    
                                     
                                 }
                                 
@@ -112,54 +162,9 @@ struct ContentView: View {
                                 }
                             }
                             .navigationBarTitleDisplayMode(.inline)
-                        .toolbarBackground(.white, for: .navigationBar)
-                    }
-                        .tabItem {
-                            if selection == 1{
-                                Text("")
-                                Image("Home_press")
-                                
-                            }else{
-                                Text("")
-                                Image("Home_unpress")
-                            }
+                            .toolbarBackground(.white, for: .navigationBar)
                             
-                        }.tag(1)
-                        
-                    NavigationView{
-                        SettingView().toolbar{
-                            ToolbarItem(placement: .navigationBarLeading){
-                                NavigationLink(destination: GamePageView()
-                                ){
-                                    Image("GameIcon")
-                                    
-                                }.navigationTitle("")
-                                
-                                
-                            }
-                            
-                            ToolbarItem(placement: .principal) {
-                                
-                                Text(selection == 0 ? "記錄追蹤" : (selection == 1 ? "Ease" : "個人設定"))
-                                    .font(.custom("GenSenRoundedTW-B", size:28))
-                                    .foregroundColor(Color("Black_700"))
-                                
-                                
-                            }
-                            
-                            
-                            ToolbarItem(placement: .navigationBarTrailing){
-                                NavigationLink(destination: MyMenuView()
-                                ){
-                                    Image("MyList")
-
-                                }.navigationTitle("")
-                            }
                         }
-                        .navigationBarTitleDisplayMode(.inline)
-                        .toolbarBackground(.white, for: .navigationBar)
-                        
-                    }
                         .tabItem{
                             if selection == 2{
                                 Text("")
@@ -169,15 +174,19 @@ struct ContentView: View {
                                 Image("Setting_unpress")
                             }
                         }.tag(2)
-                }
+                    }
+                    
+                }//hstack end
                 
-            }//hstack end
+                
+                
+            }//nav view end
+            .accentColor(Color("Black_700"))
             
-           
+        }else{
             
-        }//nav view end
-        .accentColor(Color("Black_700"))
-        
+            CheckLoginMoodView()
+        }
         
     }
 }
@@ -186,6 +195,7 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
             .environmentObject(BodyPartSharedState())
+            .environmentObject(UserMood())
     }
 }
 

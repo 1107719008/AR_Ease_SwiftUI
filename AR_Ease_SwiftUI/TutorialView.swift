@@ -39,7 +39,7 @@ struct TutorialView: View {
                                     Image("backIcon").rotationEffect(.degrees(90)).padding(30)
                                     
                                 })
-                                Text("樹式").rotationEffect(.degrees(90))
+                                Text("牛式").rotationEffect(.degrees(90))
                                     .font(.custom("GenSenRoundedTW-B", size: 24))
                                     .foregroundColor((Color("Black_800")))
                                 

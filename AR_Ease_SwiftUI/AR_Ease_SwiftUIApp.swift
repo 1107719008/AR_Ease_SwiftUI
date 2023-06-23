@@ -10,11 +10,13 @@ import SwiftUI
 @main
 struct AR_Ease_SwiftUIApp: App {
     @StateObject var bodyChosen = BodyPartSharedState()
+    @StateObject var isNotLoggedIn = UserMood()
     
     var body: some Scene {
         WindowGroup {
             ContentView().preferredColorScheme(.light)//light mood
                 .environmentObject(bodyChosen)
+                .environmentObject(isNotLoggedIn)
         }
     }
 }

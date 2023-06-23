@@ -125,7 +125,7 @@ struct ChoosePartView: View {
                     Spacer()
                 }
                 HStack{
-                    Text("最多選擇 15 種姿勢").font(.custom("GenSenRoundedTW-R", size:12)).foregroundColor((Color("Blue_700"))).padding(.leading, 30)
+                    Text("最多選擇 15 種姿勢").font(.custom("GenSenRoundedTW-R", size:12)).foregroundColor((Color("EaseBlue"))).padding(.leading, 30)
                     Spacer()
                 }
                 
@@ -231,7 +231,7 @@ struct ChoosePartView: View {
                 ZStack{
                     ScrollView(showsIndicators: false){
                         //分頁部位scrollview
-                        VStack(spacing:22){
+                        VStack(spacing:10){
                             //neck
                             if isSelectedNeckPage{
                                 

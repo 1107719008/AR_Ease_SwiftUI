@@ -158,7 +158,7 @@ class PosePredictor{
             let LeftHandAngle = calculateAngle(pointA: displayedPointLWrist, pointB: displayedPointLElbow, pointC: displayedPointLShoulder)
             
             print(LeftHandAngle)
-            if LeftHandAngle <= 120 && LeftHandAngle >= 90 && RightHandAngle <= 120 && RightHandAngle >= 90 {
+            if LeftHandAngle <= 150 && LeftHandAngle >= 120 && RightHandAngle <= 150 && RightHandAngle >= 120 {
                 checkHandPos = true
                 //checkLegPos = true
                 print("hand ok")
