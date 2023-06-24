@@ -109,8 +109,7 @@ struct ContentView: View {
                                     
                                     
                                     ToolbarItem(placement: .navigationBarTrailing){
-                                        NavigationLink(destination: MyMenuView()
-                                        ){
+                                        NavigationLink(destination: MyMenuView()){
                                             Image("MyList")
                                             
                                         }.navigationTitle("")

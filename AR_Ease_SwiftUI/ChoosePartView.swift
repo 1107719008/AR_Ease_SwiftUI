@@ -610,6 +610,7 @@ struct ChoosePartView: View {
                     }
                 }
             }
+            
         }
         .onAppear{
             sortTheBodyParts()
