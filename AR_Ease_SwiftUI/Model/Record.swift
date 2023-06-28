@@ -37,11 +37,19 @@ var records:[RecordMetaData] = [
             Record(title: "go swimming"),
             Record(title: "noting to do")
         
-        ], recorddate: getSampleDate(offset: 1)),
-        
+        ], recorddate: getSampleDate(offset: -1)),
         RecordMetaData(record: [
             Record(title: "go home")
-        ], recorddate: getSampleDate(offset: 15)),
+        ], recorddate: getSampleDate(offset: -2)),
+        RecordMetaData(record: [
+            Record(title: "go home")
+        ], recorddate: getSampleDate(offset: -4)),
+        RecordMetaData(record: [
+            Record(title: "go home")
+        ], recorddate: getSampleDate(offset: -5)),
+        RecordMetaData(record: [
+            Record(title: "go home")
+        ], recorddate: getSampleDate(offset: -10)),
         
         RecordMetaData(record: [
             Record(title: "go school")
@@ -49,7 +57,19 @@ var records:[RecordMetaData] = [
         
         RecordMetaData(record: [
             Record(title: "play games")
-        ], recorddate: getSampleDate(offset: -8))
+        ], recorddate: getSampleDate(offset: -28)),
+        RecordMetaData(record: [
+            Record(title: "play games")
+        ], recorddate: getSampleDate(offset: -35)),
+        RecordMetaData(record: [
+            Record(title: "play games")
+        ], recorddate: getSampleDate(offset: -38)),
+        RecordMetaData(record: [
+            Record(title: "play games")
+        ], recorddate: getSampleDate(offset: -44)),
+        RecordMetaData(record: [
+            Record(title: "play games")
+        ], recorddate: getSampleDate(offset: -6))
 
 
 ]

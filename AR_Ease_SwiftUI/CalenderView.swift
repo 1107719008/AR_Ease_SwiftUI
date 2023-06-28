@@ -33,10 +33,10 @@ struct CalenderView: View {
                     }
                     HStack(spacing: 10){
                         Text(extraDate()[0])
-                            .font(.custom("GenSenRoundedTW-B", size:12))
+                            .font(.custom("GenSenRoundedTW-B", size:17))
                         
                         Text(extraDate()[1])
-                            .font(.custom("GenSenRoundedTW-B", size:12))
+                            .font(.custom("GenSenRoundedTW-B", size:17))
                         //.fontWeight(.semibold)
                     }
                     
@@ -59,41 +59,47 @@ struct CalenderView: View {
                         //                        .font(.callout)
                         //                        .fontWeight(.semibold)
                             .font(.custom("GenSenRoundedTW-R", size:12))
-                            .frame(maxWidth: .infinity).padding(0)
+                            .frame(maxWidth:.infinity)
+                            .foregroundColor((Color("Gray_300")))
                     }
-                }
+                }.padding(.bottom,2)
+                    .padding(.horizontal,16.5)
                 
                 
                 //Dates here
                 let columns = Array(repeating: GridItem(.flexible()),count: 7)
-                LazyVGrid(columns: columns,spacing: 15) {
+                LazyVGrid(columns: columns,spacing: 8) {
                     ForEach(extractDate()){value in
                         
                         CardView(value: value)
                             .background(
-                            
                                 Circle()
                                     .fill(Color("EaseBlue"))
-                                    .padding(.horizontal,8)
+//                                    .padding(.horizontal,4)
                                     .opacity(isSameDay(date1: value.date, date2: currentDate) ? 1 : 0)
+                                    
                             )
                             .onTapGesture {
-                                currentDate = value.date
+                                    currentDate = value.date
+                                
                             }
                         
                         
                     }
                     
-                }
+                }.padding(.bottom,16)
+                    .padding(.horizontal,16.5)
+                
+                
             }.background(.white)
                 .padding(.bottom,0)
-                .cornerRadius(10).frame(width: 355)
-                
+                .cornerRadius(10).frame(width: 361)
+                .padding(.top, 16)
             
             //add calender below object here
-            CalenderBelowView()
-                .padding(.top, 0.0)
-                .offset(y:-40)
+//            CalenderBelowView()
+//                .padding(.top, 0.0)
+//                .offset(y:-40)
             
         }
         .onChange(of: currentMonth){ newValue in
@@ -114,31 +120,36 @@ struct CalenderView: View {
                 if let record = records.first(where: { record in
                     return isSameDay(date1: record.recorddate, date2: value.date)
                 }){
-                    Text("\(value.day)")
-                        .font(.custom("GenSenRoundedTW-B", size:12))
-                        .foregroundColor(isSameDay(date1: record.recorddate, date2: currentDate) ? .white : .primary)
-                        .frame(maxWidth: .infinity)
-                    
-                    Spacer()
-                    
-                    Circle()
-                        .fill(isSameDay(date1: record.recorddate, date2: currentDate) ? .white :
-                                Color("EaseBlue") )
-                        .frame(width: 8,height: 8)
+                    ZStack{
+                        
+                        Circle()
+                            .fill(isSameDay(date1: record.recorddate, date2: currentDate) ? Color("EaseBlue") :
+                                    Color("EaseBlue200") )
+                            .frame(width: 40,height: 40)
+                        
+                        Text("\(value.day)")
+                            .font(.custom("GenSenRoundedTW-B", size:16))
+                            .foregroundColor(isSameDay(date1: record.recorddate, date2: currentDate) ? .white : Color("EaseBlue"))
+                            .frame(maxWidth: .infinity)
+                        
+                        //Spacer()
+                      
+                        
+                    }//zstack end
                     
                     
                 }else{
                     Text("\(value.day)")
-                        .font(.custom("GenSenRoundedTW-B", size:12))
-                     .foregroundColor(isSameDay(date1: value.date, date2: currentDate) ? .white : .primary)
+                        .font(.custom("GenSenRoundedTW-B", size:16))
+                     .foregroundColor(isSameDay(date1: value.date, date2: currentDate) ? .white : Color("Black_700"))
                      .frame(maxWidth: .infinity)
                     
-                    Spacer()
+                    //Spacer()
                     
                 }
             }
         }
-        .frame(height: 35, alignment: .center)
+        .frame(height: 40, alignment: .center)
         
     }
     

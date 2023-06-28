@@ -67,7 +67,7 @@ struct DataFollowView: View {
                                 Spacer()
                                 HStack(alignment: .bottom){
                                     Text("連續").font(.custom("GenSenRoundedTW-B", size:16))
-                                    Text("21").font(.custom("GenSenRoundedTW-B", size:24))
+                                    Text("06").font(.custom("GenSenRoundedTW-B", size:24))
                                     Text("天").font(.custom("GenSenRoundedTW-B", size:16))
                                 }.padding(.trailing, 15.0).foregroundColor(Color("EaseBlue"))
                                 
@@ -80,13 +80,15 @@ struct DataFollowView: View {
                         VStack(spacing: 20){
                             if whichView == 0{
                                 VStack{
-                                    ChartBarViewDemo()
-                                        .padding(0)
-                                    //CalenderView(currentDate: $currentDate)
-                                        //.background(Color("EaseGrey_100"))
-                                    //.matchedGeometryEffect(id: "chart", in: animation)
-                                    //.transition(.move(edge: .leading))
-                                    //.animation(.easeInOut(duration: 0.2))
+                                    
+//                                    ChartBarViewDemo()
+//                                        .padding(0)
+                                    
+                                    CalenderView(currentDate: $currentDate)
+                                        .background(Color("EaseGrey_100"))
+                                    .matchedGeometryEffect(id: "chart", in: animation)
+                                    .transition(.move(edge: .leading))
+                                    .animation(.easeInOut(duration: 0.2))
                                     CalenderBelowView()//.background(Color("EaseGrey_100"))
                                         .padding(0)
                                         .offset(y:-20)
