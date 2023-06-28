@@ -10,11 +10,20 @@ import SwiftUI
 
 struct SettingView: View {
     
+    //for healthKit use
     @State private var isHealthKit = false
+    private var healthStore: HealthStore?
+    
+    
     @State private var isSoundTutorial = false
     
     @State var isSelect: String = "Easy"
-  
+    
+    init(){
+        healthStore = HealthStore()
+    }
+    
+    
     var body: some View {
         
         
@@ -104,7 +113,19 @@ struct SettingView: View {
                             HStack{
                                 Image("healthIcon")
                                 Toggle("Apple Health", isOn: $isHealthKit).font(.custom("GenSenRoundedTW-B",size: 15)).foregroundColor(Color("Black_700")).tint(Color("EaseBlue"))
+                                    .onChange(of: isHealthKit){value in
+                                        if let healthStore = healthStore {
+                                            healthStore.requestAuthorization{success in
+                                                
+                                            }
+                                        }else{
+                                            isHealthKit = false
+                                        }
+                                        
+                                        print(value)
+                                    }
                             }
+                            
                             
                             
                         }
