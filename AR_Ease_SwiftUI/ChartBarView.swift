@@ -32,7 +32,7 @@ struct ChartBarView: View {
                             Text("週").tag("Week")
                             Text("月").tag("Month")
                         }
-                        .pickerStyle(.segmented)
+                        .pickerStyle(.menu)
                         .padding(.leading,10)
                         
                     }
@@ -52,6 +52,11 @@ struct ChartBarView: View {
                         .fill(.white.shadow(.drop(radius: 2)))
                 }
                 
+                
+                //ref pic
+                Image("juneChart")
+                
+                
             }
             .frame(maxWidth: .infinity,maxHeight: .infinity,alignment: .top)
             .padding()
@@ -69,6 +74,8 @@ struct ChartBarView: View {
             }
             
             
+            
+            
         }
         
         
@@ -84,6 +91,7 @@ struct ChartBarView: View {
         
         Chart{
             ForEach(sampleChart){item in
+                
                     BarMark(
                         x: .value("Hour", item.hour,unit:.hour),
                         y: .value("min", item.animate ? item.views : 0)
@@ -111,10 +119,22 @@ struct ChartBarView: View {
                                 .padding(.vertical,4)
                             }
                     }
-                    
-                }
+                
+                
+            }
                 
            
+        }
+        //remove the vertical lines
+        .chartXAxis {
+            AxisMarks(position: .bottom) { _ in
+                // AxisGridLine().foregroundStyle(.clear)
+                // AxisTick().foregroundStyle(.clear)
+                AxisValueLabel()
+            }
+        }
+        .chartYAxis {
+            AxisMarks(position: .leading)
         }
         .frame(height:309)
         .chartYScale(domain: 0...(max+20))

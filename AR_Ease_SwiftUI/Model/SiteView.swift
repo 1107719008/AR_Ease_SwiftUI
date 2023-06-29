@@ -5,7 +5,7 @@
 //  Created by 林君翰 on 2023/6/20.
 //
 
-//this view is a sample for chart
+//this view is a sample for chart api page
 import Foundation
 import SwiftUI
 
@@ -14,6 +14,8 @@ struct SiteView: Identifiable{
     var hour: Date
     var views: Double
     var animate: Bool = false
+    
+    
 }
 
 extension Date{
