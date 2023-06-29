@@ -21,6 +21,13 @@ struct SettingView: View {
     
     init(){
         healthStore = HealthStore()
+        UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(named: "EaseBlue")
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor : UIColor.white], for: .selected)
+        UISegmentedControl.appearance().setTitleTextAttributes(
+                    [
+                        .font: UIFont(name: "GenSenRoundedTW-B", size: 13) as Any,
+                    ], for: .normal)
+        
     }
     
     

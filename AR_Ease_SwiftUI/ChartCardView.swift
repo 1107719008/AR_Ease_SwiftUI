@@ -18,6 +18,9 @@ struct ChartCardView: View {
     @State private var imageFlipBack = "BackCardF"
     @State private var isFlippedCalf = false
     @State private var imageFlipCalf = "CalfCardF"
+    
+    @State private var isAnimating = false
+    
     var body: some View {
         
         VStack {
@@ -37,6 +40,8 @@ struct ChartCardView: View {
                                 imageFlipShoulder = isFlippedShoulder ? "ShoulderCardB" : "ShoulderCardF"
                             }
                         }
+                       
+                        
                  
                     Image("iconChoseMost").offset(x:83,y:-47)
                      
@@ -57,6 +62,8 @@ struct ChartCardView: View {
                             imageFlipNeck = isFlippedNeck ? "NeckCardB" : "NeckCardF"
                         }
                     }
+                                       
+                
                 Image(imageFlipWaist)
                     .aspectRatio(contentMode: .fit)
                     .scaleEffect(x: isFlippedWaist ? -1 : 1, y: 1, anchor: .center)
