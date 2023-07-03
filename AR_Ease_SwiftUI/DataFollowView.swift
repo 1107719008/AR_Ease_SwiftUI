@@ -95,7 +95,7 @@ struct DataFollowView: View {
                                 }.background(Color("EaseGrey_100"))
                                 
                             }else{
-                                ChartView()
+                                ChartView().padding(.top,16)
                                     .background(Color("EaseGrey_100"))
                                 //.matchedGeometryEffect(id: "chart", in: animation)
                                 //.transition(.move(edge: .leading))

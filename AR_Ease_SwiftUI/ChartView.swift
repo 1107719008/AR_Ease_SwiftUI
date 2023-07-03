@@ -11,14 +11,15 @@ struct ChartView: View {
    
     var body: some View {
         ZStack{
-            VStack{
-                ChartValueViewDemo()
-                //ChartBarView()
-                ChartCardView()
-                
-              Spacer()
-            }
-         
+           
+                VStack{
+                    //ChartValueViewDemo()
+                    ChartBarView()
+                    ChartCardView()
+                    
+                    Spacer()
+                }
+            
             
             
             

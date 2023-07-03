@@ -19,22 +19,42 @@ struct ChartBarView: View {
     @State var currentActiveItem: SiteView?
     @State var plotWidth: CGFloat = 0
     
+
+    
     var body: some View {
       
-        NavigationStack{
+        ZStack{
             VStack{
                 VStack(alignment: .leading, spacing: 12){
+                    
                     HStack{
-                        Text("時間 min").fontWeight(.semibold)
                         
-                        Picker("",selection:$currentTab){
-                            Text("天").tag("7 Days")
-                            Text("週").tag("Week")
-                            Text("月").tag("Month")
-                        }
-                        .pickerStyle(.menu)
-                        .padding(.leading,10)
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                        Image("yearDemo")
+                            
+                        Spacer()
+                       
+                            ZStack{
+                                Image("monthBG")
+                             
+                                    Picker("",selection:$currentTab){
+                                        Text("天").tag("7 Days")
+                                        Text("週").tag("Week")
+                                        Text("月").tag("Month")
+                                        
+                                    }
+                             
+                                .pickerStyle(.menu)
+                                
+                            }.padding(.leading,-16)
+                            .padding(.trailing,16)
                         
+                    }.padding(.top)
+                    HStack{
+                        Text("時間 min").fontWeight(.semibold).font(.custom("GenSenRoundedTW-B", size:12))
+                            .foregroundColor(Color("Gray_300")).padding(.leading,16)
                     }
                     
                     let totalValue = sampleChart.reduce(0.0) { partialResult, item in
@@ -42,29 +62,42 @@ struct ChartBarView: View {
                     }
                     
                     //show total
-                    Text(totalValue.stringFormat)
+                    //Text(totalValue.stringFormat)
                     
                     
                     AnimatedChart()
                     
+                    HStack{
+                        Spacer()
+                        Text("日期").font(.custom("GenSenRoundedTW-B", size:12))
+                        .foregroundColor(Color("Gray_300"))
+                        Spacer()
+                    }.padding(.bottom,16)
+                        .padding(.top,-8)
+                    
                 }.background{
                     RoundedRectangle(cornerRadius: 10,style: .continuous)
-                        .fill(.white.shadow(.drop(radius: 2)))
-                }
+                        .fill(.white/*.shadow(.drop(radius: 2))*/)
+                    
+                }.padding(.horizontal,16)
                 
                 
                 //ref pic
-                Image("juneChart")
+               // Image("juneChart")
                 
                 
             }
             .frame(maxWidth: .infinity,maxHeight: .infinity,alignment: .top)
-            .padding()
+            
             .onChange(of: currentTab) { newvalue in
                 sampleChart = sample_chart
-                if newvalue != "7 Days"{
+                if newvalue == "Week"{
+                        for (index,_) in sampleChart.enumerated(){
+                            sampleChart[index].views = .random(in: 30...50)
+                        }
+                }else if newvalue == "Month"{
                     for (index,_) in sampleChart.enumerated(){
-                        sampleChart[index].views = .random(in: 150...600)
+                        sampleChart[index].views = .random(in: 40...90)
                     }
                 }
                 
@@ -88,35 +121,40 @@ struct ChartBarView: View {
             return item2.views > item1.views
         }?.views ?? 0
         
-        
         Chart{
+          
             ForEach(sampleChart){item in
                 
                     BarMark(
-                        x: .value("Hour", item.hour,unit:.hour),
+                        x: .value("Day", item.day,unit:.weekOfMonth),
                         y: .value("min", item.animate ? item.views : 0)
                     )
                     //apply style
                     .foregroundStyle(Color("EaseYellow"))
-                    .cornerRadius(20)
+                    .cornerRadius(100)
                     
                     
                     
                     //rule for dragging items -- a line
+              
+                   
+                
+                                                
                     if let currentActiveItem,currentActiveItem.id == item.id{
-                        RuleMark(x: .value("Hour", currentActiveItem.hour))
+                        RuleMark(x: .value("Date", currentActiveItem.day)).foregroundStyle(.clear)
                         //set in mid of each bar
                         //.offset(x:(plotWidth / CGFloat(sampleChart.count)) / 2)
                             .offset(x:10)
                             .annotation(position: .top){
-                                VStack(alignment: .leading, spacing: 6){
-                                    Text("Time").font(.caption)
-                                        .foregroundColor(.gray)
-                                    Text(currentActiveItem.views.stringFormat)
-                                        .font(.title3.bold())
-                                }
-                                .padding(.horizontal,10)
-                                .padding(.vertical,4)
+//                                VStack(alignment: .leading, spacing: 6){
+//                                    Text("High").font(.caption)
+//                                        .foregroundColor(.gray)
+//                                    Text(currentActiveItem.views.stringFormat)
+//                                        .font(.title3.bold())
+//                                }.offset(y:50)
+//                                .padding(.horizontal,20)
+//                                .padding(.vertical,4)
+                                Image("topHigh").offset(y:40)
                             }
                     }
                 
@@ -127,16 +165,18 @@ struct ChartBarView: View {
         }
         //remove the vertical lines
         .chartXAxis {
-            AxisMarks(position: .bottom) { _ in
+            AxisMarks(position: .bottom,values: sampleChart.map{$0.day}) { day in
                 // AxisGridLine().foregroundStyle(.clear)
-                // AxisTick().foregroundStyle(.clear)
-                AxisValueLabel()
+                //AxisTick()//.foregroundStyle(.clear)
+                AxisValueLabel(format: .dateTime.day())
             }
         }
         .chartYAxis {
             AxisMarks(position: .leading)
+            
         }
-        .frame(height:309)
+        .padding(.horizontal,16)
+        .frame(height:180)
         .chartYScale(domain: 0...(max+20))
         //highlight chosen bar
         .chartOverlay(content: { proxy in
@@ -150,9 +190,9 @@ struct ChartBarView: View {
                             
                             if let date: Date = proxy.value(atX: location.x){
                                 let calendar = Calendar.current
-                                let hour = calendar.component(.hour, from: date)
+                                let day = calendar.component(.day, from: date)
                                 if let currentItem = sampleChart.first(where: {item in
-                                    calendar.component(.hour, from: item.hour) == hour
+                                    calendar.component(.day, from: item.day) == day
                                 }){
                                     self.currentActiveItem = currentItem
                                     self.plotWidth = proxy.plotAreaSize.width
