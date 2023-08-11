@@ -67,7 +67,7 @@ struct CountDownView: View {
             
             Spacer()
             
-            Image( timeAlmostUp ? "preview1" : "preview2")
+            Image( timeAlmostUp ? "preview2" : "preview1")
             
             
         }

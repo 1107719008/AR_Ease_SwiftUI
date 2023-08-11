@@ -48,7 +48,6 @@ struct ChoosePartView: View {
     @State private var isChoseActionC3 = false
     
     
-    
     init() {
         //Customize nav bar title size
         UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont(name: "Georgia-Bold", size: 28)!]
@@ -86,6 +85,7 @@ struct ChoosePartView: View {
     
     func sortTheBodyParts(){
         let originalBody = [("Neck",bodyChosen.isSelectedNeck),("Shoulder",bodyChosen.isSelectedShoulder),("Waist",bodyChosen.isSelectedWaist),("Back",bodyChosen.isSelectedBack),("Calf",bodyChosen.isSelectedCalf)]
+        
         let sortedBody = originalBody.filter { $0.1 }.map { $0.0 }
         
         switch sortedBody[0]{

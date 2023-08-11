@@ -142,6 +142,7 @@ struct SettingView: View {
                             
                     }
                     }//list end
+                    .listStyle(InsetGroupedListStyle())
                     .scrollContentBackground(.hidden)
                     //.offset(x:-12)
                     .frame(width: 415)

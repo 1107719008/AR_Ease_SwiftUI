@@ -24,7 +24,7 @@ struct TutorialView: View {
             }else{
                 ZStack{
                     ViewControllerCameraView()
-                        .edgesIgnoringSafeArea(.all).offset(x:3)
+                        .edgesIgnoringSafeArea(.all).offset(x:3.5)
                     
                     VStack{
                         
@@ -39,7 +39,7 @@ struct TutorialView: View {
                                     Image("backIcon").rotationEffect(.degrees(90)).padding(30)
                                     
                                 })
-                                Text("牛式").rotationEffect(.degrees(90))
+                                Text("樹式").rotationEffect(.degrees(90))
                                     .font(.custom("GenSenRoundedTW-B", size: 24))
                                     .foregroundColor((Color("Black_800")))
                                 
