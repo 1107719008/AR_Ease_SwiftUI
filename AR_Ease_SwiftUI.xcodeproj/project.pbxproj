@@ -46,6 +46,7 @@
 		9AD404932A3F629900A30459 /* MyMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD404922A3F629900A30459 /* MyMenuView.swift */; };
 		9AD404952A40BB5A00A30459 /* FinishResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD404942A40BB5A00A30459 /* FinishResultView.swift */; };
 		9ADEFCCF2A85E99300603BC7 /* PreparationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADEFCCE2A85E99300603BC7 /* PreparationView.swift */; };
+		9ADEFCD22A874DE900603BC7 /* ClockCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADEFCD12A874DE900603BC7 /* ClockCountView.swift */; };
 		9AE50F042A3ACDAC004F7F06 /* CalenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE50F032A3ACDAC004F7F06 /* CalenderView.swift */; };
 		9AE50F072A3ADA26004F7F06 /* DateValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE50F062A3ADA26004F7F06 /* DateValue.swift */; };
 		9AE50F092A3B1FEC004F7F06 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE50F082A3B1FEC004F7F06 /* Record.swift */; };
@@ -118,6 +119,7 @@
 		9AD404922A3F629900A30459 /* MyMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMenuView.swift; sourceTree = "<group>"; };
 		9AD404942A40BB5A00A30459 /* FinishResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishResultView.swift; sourceTree = "<group>"; };
 		9ADEFCCE2A85E99300603BC7 /* PreparationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreparationView.swift; sourceTree = "<group>"; };
+		9ADEFCD12A874DE900603BC7 /* ClockCountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockCountView.swift; sourceTree = "<group>"; };
 		9AE50F032A3ACDAC004F7F06 /* CalenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderView.swift; sourceTree = "<group>"; };
 		9AE50F062A3ADA26004F7F06 /* DateValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateValue.swift; sourceTree = "<group>"; };
 		9AE50F082A3B1FEC004F7F06 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 				9A2616D42A3758ED007FF28A /* ChoosePartView.swift */,
 				9A2616C92A36E3E0007FF28A /* TutorialView.swift */,
 				9A2616D22A371B3C007FF28A /* CountDownView.swift */,
+				9ADEFCD12A874DE900603BC7 /* ClockCountView.swift */,
 				9ADEFCD02A85E9B400603BC7 /* PreparePage */,
 				9A2616C32A36D6B3007FF28A /* ViewControllerCameraView.swift */,
 				9A2616C52A36D6CA007FF28A /* VideoCapture.swift */,
@@ -431,6 +434,7 @@
 				9A2616C62A36D6CA007FF28A /* VideoCapture.swift in Sources */,
 				9A2616BA2A3304FE007FF28A /* DataFollowView.swift in Sources */,
 				9A2616C22A364E58007FF28A /* SuggestClassCard.swift in Sources */,
+				9ADEFCD22A874DE900603BC7 /* ClockCountView.swift in Sources */,
 				9A9689F12A41D1EA00751A90 /* SiteView.swift in Sources */,
 				9AE50F112A3CCA2C004F7F06 /* CalenderBelowView.swift in Sources */,
 				9A2616BE2A330541007FF28A /* SettingView.swift in Sources */,

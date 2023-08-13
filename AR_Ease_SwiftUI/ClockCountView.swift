@@ -1,17 +1,17 @@
 //
-//  CountDownView.swift
+//  ClockCountView.swift
 //  AR_Ease_SwiftUI
 //
-//  Created by 林君翰 on 2023/6/12.
+//  Created by 林君翰 on 2023/8/12.
 //
 
 import SwiftUI
 
-let timer = Timer
+let timerClock = Timer
     .publish(every: 1, on: .main, in: .common)
     .autoconnect()
 
-struct CountDownView: View {
+struct ClockCountView: View {
     
     @State var timeAlmostUp: Bool = false
     @Binding var isTimeUp: Bool
@@ -65,9 +65,9 @@ struct CountDownView: View {
                 }
             }
             
-            Spacer()
-            
-            Image( timeAlmostUp ? "preview2" : "preview1")
+//            Spacer()
+//
+//            Image( timeAlmostUp ? "preview2" : "preview1")
             
             
         }
@@ -102,34 +102,34 @@ struct CountDownView: View {
     
 }
 
-//add clock count
-struct Clock : View{
-    var counter : Int
-    var countTo : Int
-    
-    var body: some View{
-       
-        VStack{
-                Text(counterToMinutes())
-                    .font(.custom("GenSenRoundedTW-B", size: 32))
-                    .fontWeight(.black)
-                    .foregroundColor(Color.black.opacity(0.8))
-        }
-            
-    }
-    
-    
-    func counterToMinutes() -> String{
-        let currentTime = countTo - counter
-        return "\(currentTime)"
-    }
-    
-    
-    
-}
+////add clock count
+//struct Clock : View{
+//    var counter : Int
+//    var countTo : Int
+//
+//    var body: some View{
+//
+//        VStack{
+//                Text(counterToMinutes())
+//                    .font(.custom("GenSenRoundedTW-B", size: 32))
+//                    .fontWeight(.black)
+//                    .foregroundColor(Color.black.opacity(0.8))
+//        }
+//
+//    }
+//
+//
+//    func counterToMinutes() -> String{
+//        let currentTime = countTo - counter
+//        return "\(currentTime)"
+//    }
+//
+//
+//
+//}
 
-struct CountDownView_Previews: PreviewProvider {
+struct ClockCountView_Previews: PreviewProvider {
     static var previews: some View {
-        CountDownView(isTimeUp: .constant(false))
+        ClockCountView(isTimeUp: .constant(false))
     }
 }

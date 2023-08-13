@@ -16,21 +16,43 @@ struct PreparationView: View {
         
         ZStack{
             
-            //bg image
-            switch prepareState {
-            case 0:
-                Image("step1")
-            case 1:
-                Image("step2")
-            case 2:
-                Image("step3")
-            case 3:
-                Text("")
-            default:
-                Text("")
+            ZStack{
+                //bg image
+                switch prepareState {
+                case 0:
+                    Image("step1").resizable()
+                        .edgesIgnoringSafeArea(.all)
+                        
+                        
+                case 1:
+                    Image("step2")
+                case 2:
+                    Image("step3")
+                case 3:
+                    Text("")
+                default:
+                    Text("")
+                }
+                
             }
             
             VStack{
+                //step states 第n步
+                switch prepareState {
+                case 0:
+                    Image("st1Btn")
+                case 1:
+                    Image("st2Btn")
+                case 2:
+                    Text("")
+                case 3:
+                    Text("")
+                default:
+                    Text("")
+                }
+                
+                
+                
                 //next step btn
                 Button{
                     withAnimation(.easeInOut(duration: 0.3)){
@@ -48,8 +70,9 @@ struct PreparationView: View {
                         Image("nextPBtn")
                     case 2:
                         Image("startcountBtn")
-                    case 3:
-                        Text("")
+                        
+                    case 3://counts at case 3
+                        ClockCountView(isTimeUp: .constant(false))
                     default:
                         Text("")
                     }
@@ -58,23 +81,15 @@ struct PreparationView: View {
                 
                
                 
-                //step states 第n步
-                switch prepareState {
-                case 0:
-                    Image("st1Btn")
-                case 1:
-                    Image("st2Btn")
-                case 2:
-                    Text("")
-                case 3:
-                    Text("")
-                default:
-                    Text("")
-                }
-            }
+                
+            }.rotationEffect(.degrees(90))
             
             
-        }.rotationEffect(.degrees(90))
+        }
+            
+        
+            
+           
         
     }
 }
