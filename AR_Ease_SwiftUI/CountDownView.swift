@@ -59,7 +59,7 @@ struct CountDownView: View {
                                 ).animation(
                                     .easeInOut(duration: 0.2)
                                 )
-                        )
+                        ).rotationEffect(Angle(degrees: -90))
                     
                     
                 }
@@ -102,7 +102,7 @@ struct CountDownView: View {
     
 }
 
-//add clock count
+//add clock count -- declare a clock with it's style
 struct Clock : View{
     var counter : Int
     var countTo : Int
@@ -111,9 +111,9 @@ struct Clock : View{
        
         VStack{
                 Text(counterToMinutes())
-                    .font(.custom("GenSenRoundedTW-B", size: 32))
+                    .font(.custom("GenSenRoundedTW-B", size: 30))
                     .fontWeight(.black)
-                    .foregroundColor(Color.black.opacity(0.8))
+                    .foregroundColor(Color("EaseBlue"))
         }
             
     }

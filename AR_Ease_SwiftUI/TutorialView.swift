@@ -16,6 +16,9 @@ struct TutorialView: View {
     
     @State private var isTimeUp = false
     
+    @State private var isPrepareTimeUp = false
+    
+    
     var body: some View {
         
         ZStack{

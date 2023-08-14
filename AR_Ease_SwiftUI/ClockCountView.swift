@@ -5,6 +5,8 @@
 //  Created by 林君翰 on 2023/8/12.
 //
 
+//this is for prepareview's timer -- set 10 sec
+
 import SwiftUI
 
 let timerClock = Timer
@@ -20,8 +22,8 @@ struct ClockCountView: View {
     @State var counter: Int = 0
     
     //two var should be set to same value in production
-    var countTo : Int = 30
-    var timesUpTime : Int = 30
+    var countTo : Int = 10
+    var timesUpTime : Int = 10
     
     var body: some View {
         VStack(alignment: .trailing){
@@ -59,7 +61,7 @@ struct ClockCountView: View {
                                 ).animation(
                                     .easeInOut(duration: 0.2)
                                 )
-                        )
+                        ).rotationEffect(Angle(degrees: -90))
                     
                     
                 }
