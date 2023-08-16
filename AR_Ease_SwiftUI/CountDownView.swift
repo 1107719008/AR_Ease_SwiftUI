@@ -13,7 +13,7 @@ let timer = Timer
 
 struct CountDownView: View {
     
-    @State var timeAlmostUp: Bool = false
+    @Binding var timeAlmostUp: Bool
     @Binding var isTimeUp: Bool
     
     //change count time here
@@ -130,6 +130,6 @@ struct Clock : View{
 
 struct CountDownView_Previews: PreviewProvider {
     static var previews: some View {
-        CountDownView(isTimeUp: .constant(false))
+        CountDownView(timeAlmostUp: .constant(false), isTimeUp: .constant(false))
     }
 }

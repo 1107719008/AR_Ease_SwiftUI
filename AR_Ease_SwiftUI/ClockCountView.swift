@@ -81,14 +81,14 @@ struct ClockCountView: View {
             }
             if counter >= 25 {
                 timeAlmostUp = true
-                
-               
             }else{
                 timeAlmostUp = false
             }
+            
             if counter == timesUpTime{
                 isTimeUp = true
             }
+            
         }
         
     }

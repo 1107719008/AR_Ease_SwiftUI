@@ -12,7 +12,9 @@ struct PreparationView: View {
     
     @State var prepareState: Int = 0
     
-    @State var startTutorial: Bool = false
+    @Binding var startTutorial: Bool
+    
+    
     
     var body: some View {
         
@@ -22,14 +24,14 @@ struct PreparationView: View {
                 //bg image
                 switch prepareState {
                 case 0:
-                    Image("step1")
+                    Image("step1_1")
                        
                         
                         
                 case 1:
-                    Image("step2")
+                    Image("step2_1")
                 case 2:
-                    Image("step3")
+                    Image("step3_1")
                 case 3:
                     Text("")
                 default:
@@ -39,6 +41,7 @@ struct PreparationView: View {
             }
             
             VStack{
+                
                 HStack{
                     
                     Spacer()
@@ -51,6 +54,8 @@ struct PreparationView: View {
                         },label: {
                             Image("lastStep")
                         })
+                      
+                        
                         
                     }else{
                         Button(action: {
@@ -63,8 +68,13 @@ struct PreparationView: View {
                         },label: {
                             Image("backB")
                         })
+                            
+                        
+                        
+                        
                     }
-                }.padding(24.0)
+                }.padding(.trailing,24.0).offset(y:50)
+                    
                 
                 Spacer()
                 
@@ -115,17 +125,15 @@ struct PreparationView: View {
                         Text("")
                     }
                     
-                    if startTutorial{
-                        Text("start is true")
-                    }else{
-                        Text("false now")
-                    }
+                    
                     
                     
                 }.padding(24)
             }
             
         }.toolbar(.hidden, for: .tabBar)
+            .offset(y:0)
+            .frame(width: 392,height: 852)
             
         
             
@@ -136,6 +144,6 @@ struct PreparationView: View {
 
 struct PreparationView_Previews: PreviewProvider {
     static var previews: some View {
-        PreparationView()
+        PreparationView(startTutorial: .constant(false))
     }
 }
