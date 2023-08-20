@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-
+import AVFoundation
 
 
 struct TutorialView: View {
@@ -19,6 +19,7 @@ struct TutorialView: View {
     
     @State private var isPrepareTimeUp = false
     
+    @State private var isLocked = false
     
     var body: some View {
         
@@ -105,7 +106,9 @@ struct TutorialView: View {
             }else{//prepare view
                 ZStack{
                     ViewControllerCameraView()
-                        .edgesIgnoringSafeArea(.all).offset(x:0)
+                        .edgesIgnoringSafeArea(.all)
+                        
+
                     PreparationView(startTutorial: $isPrepareTimeUp).navigationBarHidden(true).edgesIgnoringSafeArea(.all)
                     
                 }

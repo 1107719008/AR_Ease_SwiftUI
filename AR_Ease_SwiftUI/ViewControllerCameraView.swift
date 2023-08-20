@@ -72,16 +72,18 @@ class ViewController: UIViewController {
     private func setupVideoPreview(){
         videoCapture.startCaptureSession()
         previewLayer = AVCaptureVideoPreviewLayer(session: videoCapture.captureSession)
-        previewLayer?.videoGravity = .resizeAspectFill//set full screen
         previewLayer?.frame = UIScreen.main.bounds
+        previewLayer?.videoGravity = .resizeAspectFill//set full screen
+        
+        
         
         //add video frame
         guard let previewLayer = previewLayer else { return }
         view.layer.addSublayer(previewLayer)
         previewLayer.frame = view.frame
         
-        //previewLayer.videoGravity = .resizeAspectFill
-        //previewLayer.connection?.videoOrientation = .landscapeRight
+//        previewLayer.videoGravity = .resizeAspectFill
+//        previewLayer.connection?.videoOrientation = .landscapeRight
         
        
         
@@ -106,6 +108,11 @@ class ViewController: UIViewController {
 
         
     }
+    
+   
+    
+    
+    
     
     private func processCheckingPose(_ checkLegPos: Bool,_ checkHandPos: Bool){
         if checkHandPos {
