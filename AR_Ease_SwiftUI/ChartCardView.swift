@@ -43,7 +43,7 @@ struct ChartCardView: View {
                        
                         
                  
-                    Image("iconChoseMost").offset(x:83,y:-47)
+                    Image("iconChoseMost").offset(x:83.5,y:-38)
                      
                     
                 }

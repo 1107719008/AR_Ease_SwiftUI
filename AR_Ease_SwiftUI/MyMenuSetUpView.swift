@@ -56,17 +56,17 @@ struct MyMenuSetUpView: View {
                 
                 
                 Text("選擇想要的姿勢").font(.custom("GenSenRoundedTW-B", size:28))
-                    .foregroundColor((Color("Black_800"))).padding(.leading, 30)
+                    .foregroundColor((Color("Black_800"))).padding(.leading, 20)
                 Spacer()
             }
             HStack{
-                Text("最多選擇 15 種姿勢").font(.custom("GenSenRoundedTW-R", size:12)).foregroundColor((Color("EaseBlue"))).padding(.leading, 30)
+                Text("最多選擇 15 種姿勢").font(.custom("GenSenRoundedTW-R", size:12)).foregroundColor((Color("EaseBlue"))).padding(.leading, 20)
                 Spacer()
             }
             
             ScrollView(.horizontal,showsIndicators: false){
                 HStack(spacing:12){
-                    if bodyChosen.isSelectedNeck{
+                    if bodyChosen.isSelectedNeckM{
                         Button(action: {
                             isSelectedNeckPage = true
                             isSelectedShoulderPage = false
@@ -85,7 +85,7 @@ struct MyMenuSetUpView: View {
                         })
                     }
                     
-                    if bodyChosen.isSelectedShoulder{
+                    if bodyChosen.isSelectedShoulderM{
                         Button(action: {
                             isSelectedNeckPage = false
                             isSelectedShoulderPage = true
@@ -103,7 +103,7 @@ struct MyMenuSetUpView: View {
                         })
                     }
                     
-                    if bodyChosen.isSelectedWaist{
+                    if bodyChosen.isSelectedWaistM{
                         Button(action: {
                             isSelectedNeckPage = false
                             isSelectedShoulderPage = false
@@ -120,7 +120,7 @@ struct MyMenuSetUpView: View {
                         })
                     }
                     
-                    if bodyChosen.isSelectedBack{
+                    if bodyChosen.isSelectedBackM{
                         Button(action: {
                             isSelectedNeckPage = false
                             isSelectedShoulderPage = false
@@ -137,7 +137,7 @@ struct MyMenuSetUpView: View {
                         })
                     }
                     
-                    if bodyChosen.isSelectedCalf{
+                    if bodyChosen.isSelectedCalfM{
                         Button(action: {
                             isSelectedNeckPage = false
                             isSelectedShoulderPage = false
@@ -159,7 +159,7 @@ struct MyMenuSetUpView: View {
                     
                     
                 }
-                .padding(.leading, 32.0)
+                .padding(.leading, 20.0)
                 
             }
             

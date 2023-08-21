@@ -13,6 +13,9 @@ struct HomeView: View {
     
     @EnvironmentObject var bodyChosen: BodyPartSharedState
     
+    //為了將 back btn word 隱藏
+    @State private var isActive: Bool = false
+    
     var body: some View {
   
             ScrollView{
@@ -31,6 +34,7 @@ struct HomeView: View {
                             Image("Circle_GoChosenBTN").resizable().frame(width:60,height: 60)
                             
                         }.offset(x:155,y:-45)
+                            .navigationBarTitle(!isActive ? "" : "", displayMode: .inline)//為了將 back btn word 隱藏
                         
                         SuggestClassCard()
                             .padding(.top, -25.0)

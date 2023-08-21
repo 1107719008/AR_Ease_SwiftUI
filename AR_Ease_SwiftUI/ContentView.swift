@@ -9,7 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State var selection = 1
+    @State var selection = 0
+    
     
     @EnvironmentObject var bodyChosen: BodyPartSharedState
     
@@ -47,19 +48,19 @@ struct ContentView: View {
                         NavigationView{
                             HomeView()
                                 .toolbar{
-                                    ToolbarItem(placement: .navigationBarLeading){
-                                        NavigationLink(destination: GamePageView()
-                                        ){
-                                            Image("GameIcon")
-                                            
-                                        }.navigationTitle("")
-                                        
-                                        
-                                    }
+//                                    ToolbarItem(placement: .navigationBarLeading){
+//                                        NavigationLink(destination: GamePageView()
+//                                        ){
+//                                            Image("GameIcon")
+//
+//                                        }.navigationTitle("")
+//
+//
+//                                    }
                                     
                                     ToolbarItem(placement: .principal) {
                                         
-                                        Text(selection == 0 ? "記錄追蹤" : (selection == 1 ? "Ease" : "個人設定"))
+                                        Text(selection == 0 ? "Ease" : (selection == 1 ? "記錄追蹤" : "個人設定"))
                                             .font(.custom("GenSenRoundedTW-B", size:28))
                                             .foregroundColor(Color("Black_700"))
                                         
@@ -67,12 +68,12 @@ struct ContentView: View {
                                     }
                                     
                                     
-                                    ToolbarItem(placement: .navigationBarTrailing){
-                                        NavigationLink(destination: MyMenuView()){
-                                            Image("MyList")
-                                            
-                                        }.navigationTitle("")
-                                    }
+//                                    ToolbarItem(placement: .navigationBarTrailing){
+//                                        NavigationLink(destination: MyMenuView()){
+//                                            Image("MyList")
+//
+//                                        }.navigationTitle("")
+//                                    }
                                 }
                                 .navigationBarTitleDisplayMode(.inline)
                                 .toolbarBackground(.white, for: .navigationBar)
@@ -90,35 +91,35 @@ struct ContentView: View {
                         }.tag(0)
                         
                         NavigationView{
-                            DataFollowView()
+                            MyMenuView()
                                 .toolbar{
-                                    ToolbarItem(placement: .navigationBarLeading){
-                                        NavigationLink(destination: GamePageView()
-                                        ){
-                                            Image("GameIcon")
-                                            
-                                        }.navigationTitle("")
-                                        
-                                        
-                                    }
+//                                    ToolbarItem(placement: .navigationBarLeading){
+//                                        NavigationLink(destination: GamePageView()
+//                                        ){
+//                                            Image("GameIcon")
+//
+//                                        }.navigationTitle("")
+//
+//
+//                                    }
                                     
                                     ToolbarItem(placement: .principal) {
                                         
-                                        Text(selection == 0 ? "記錄追蹤" : (selection == 1 ? "Ease" : "個人設定"))
-                                            .font(.custom("GenSenRoundedTW-B", size:28))
-                                            .foregroundColor(Color("Black_700"))
+//                                        Text(selection == 0 ? "記錄追蹤" : (selection == 1 ? "Ease" : "個人設定"))
+//                                            .font(.custom("GenSenRoundedTW-B", size:28))
+//                                            .foregroundColor(Color("Black_700"))
                                         
                                         
                                     }
                                     
                                     
-                                    ToolbarItem(placement: .navigationBarTrailing){
-                                        NavigationLink(destination: MyMenuView()
-                                        ){
-                                            Image("MyList")
-                                            
-                                        }.navigationTitle("")
-                                    }
+//                                    ToolbarItem(placement: .navigationBarTrailing){
+//                                        NavigationLink(destination: MyMenuView()
+//                                        ){
+//                                            Image("MyList")
+//
+//                                        }.navigationTitle("")
+//                                    }
                                 }
                                 .navigationBarTitleDisplayMode(.inline)
                                 .toolbarBackground(.white, for: .navigationBar)
@@ -136,34 +137,34 @@ struct ContentView: View {
                         
                         
                         NavigationView{
-                            SettingView().toolbar{
-                                ToolbarItem(placement: .navigationBarLeading){
-                                    NavigationLink(destination: GamePageView()
-                                    ){
-                                        Image("GameIcon")
-                                        
-                                    }.navigationTitle("")
-                                    
-                                    
-                                }
+                            GamePageView().toolbar{
+//                                ToolbarItem(placement: .navigationBarLeading){
+//                                    NavigationLink(destination: GamePageView()
+//                                    ){
+//                                        Image("GameIcon")
+//
+//                                    }.navigationTitle("")
+//
+//
+//                                }
                                 
                                 ToolbarItem(placement: .principal) {
                                     
-                                    Text(selection == 0 ? "記錄追蹤" : (selection == 1 ? "Ease" : "個人設定"))
-                                        .font(.custom("GenSenRoundedTW-B", size:28))
-                                        .foregroundColor(Color("Black_700"))
+//                                    Text(selection == 0 ? "記錄追蹤" : (selection == 1 ? "Ease" : "個人設定"))
+//                                        .font(.custom("GenSenRoundedTW-B", size:28))
+//                                        .foregroundColor(Color("Black_700"))
                                     
                                     
                                 }
                                 
                                 
-                                ToolbarItem(placement: .navigationBarTrailing){
-                                    NavigationLink(destination: MyMenuView()
-                                    ){
-                                        Image("MyList")
-                                        
-                                    }.navigationTitle("")
-                                }
+//                                ToolbarItem(placement: .navigationBarTrailing){
+//                                    NavigationLink(destination: MyMenuView()
+//                                    ){
+//                                        Image("MyList")
+//
+//                                    }.navigationTitle("")
+//                                }
                             }
                             .navigationBarTitleDisplayMode(.inline)
                             .toolbarBackground(.white, for: .navigationBar)
@@ -180,20 +181,21 @@ struct ContentView: View {
                         }.tag(2)
                         
                         NavigationView{
-                            SettingView().toolbar{
-                                ToolbarItem(placement: .navigationBarLeading){
-                                    NavigationLink(destination: GamePageView()
-                                    ){
-                                        Image("GameIcon")
-                                        
-                                    }.navigationTitle("")
-                                    
-                                    
-                                }
+                            DataFollowView()
+                                .toolbar{
+//                                ToolbarItem(placement: .navigationBarLeading){
+//                                    NavigationLink(destination: GamePageView()
+//                                    ){
+//                                        Image("GameIcon")
+//
+//                                    }.navigationTitle("")
+//
+//
+//                                }
                                 
                                 ToolbarItem(placement: .principal) {
                                     
-                                    Text(selection == 0 ? "記錄追蹤" : (selection == 1 ? "Ease" : "個人設定"))
+                                    Text(selection == 0 ? "Ease" : (selection == 1 ? "記錄追蹤" : "個人設定"))
                                         .font(.custom("GenSenRoundedTW-B", size:28))
                                         .foregroundColor(Color("Black_700"))
                                     
@@ -201,13 +203,13 @@ struct ContentView: View {
                                 }
                                 
                                 
-                                ToolbarItem(placement: .navigationBarTrailing){
-                                    NavigationLink(destination: MyMenuView()
-                                    ){
-                                        Image("MyList")
-                                        
-                                    }.navigationTitle("")
-                                }
+//                                ToolbarItem(placement: .navigationBarTrailing){
+//                                    NavigationLink(destination: MyMenuView()
+//                                    ){
+//                                        Image("MyList")
+//
+//                                    }.navigationTitle("")
+//                                }
                             }
                             .navigationBarTitleDisplayMode(.inline)
                             .toolbarBackground(.white, for: .navigationBar)
@@ -225,19 +227,19 @@ struct ContentView: View {
                         
                         NavigationView{
                             SettingView().toolbar{
-                                ToolbarItem(placement: .navigationBarLeading){
-                                    NavigationLink(destination: GamePageView()
-                                    ){
-                                        Image("GameIcon")
-                                        
-                                    }.navigationTitle("")
-                                    
-                                    
-                                }
+//                                ToolbarItem(placement: .navigationBarLeading){
+//                                    NavigationLink(destination: GamePageView()
+//                                    ){
+//                                        Image("GameIcon")
+//
+//                                    }.navigationTitle("")
+//
+//
+//                                }
                                 
                                 ToolbarItem(placement: .principal) {
                                     
-                                    Text(selection == 0 ? "記錄追蹤" : (selection == 1 ? "Ease" : "個人設定"))
+                                    Text(selection == 0 ? "Ease" : (selection == 1 ? "記錄追蹤" : "個人設定"))
                                         .font(.custom("GenSenRoundedTW-B", size:28))
                                         .foregroundColor(Color("Black_700"))
                                     
@@ -245,13 +247,13 @@ struct ContentView: View {
                                 }
                                 
                                 
-                                ToolbarItem(placement: .navigationBarTrailing){
-                                    NavigationLink(destination: MyMenuView()
-                                    ){
-                                        Image("MyList")
-                                        
-                                    }.navigationTitle("")
-                                }
+//                                ToolbarItem(placement: .navigationBarTrailing){
+//                                    NavigationLink(destination: MyMenuView()
+//                                    ){
+//                                        Image("MyList")
+//
+//                                    }.navigationTitle("")
+//                                }
                             }
                             .navigationBarTitleDisplayMode(.inline)
                             .toolbarBackground(.white, for: .navigationBar)

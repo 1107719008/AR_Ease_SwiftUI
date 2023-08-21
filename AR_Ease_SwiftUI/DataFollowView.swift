@@ -11,13 +11,28 @@ import SwiftUI
 
 struct DataFollowView: View {
     
+    @State var usedDays: Int = 26
+    
     @State var currentDate: Date = Date()
     @State var whichView = 0
+    @State var showDayAlert = false
     
     var body: some View {
         //two mode - CalendarView/ChartView
         
             ZStack{//for change 追蹤與日曆
+               
+              
+                Text("HI Alert").alert(isPresented: $showDayAlert) {
+                    Alert(title: Text("🎉恭喜🎉")
+                        .font(.custom("GenSenRoundedTW-B", size:20))
+                        .foregroundColor((Color("Black_700")))
+                          ,message: Text("這個月已連續運動\(String(usedDays))天!").foregroundColor((Color("Black_800")))
+                    )
+                }
+                    
+             
+                    
                 
                 VStack{
                     
@@ -110,15 +125,19 @@ struct DataFollowView: View {
                     
                 }
                 
-            }
-        //.background(Color("EaseGrey_100"))
+            }.onAppear{
+                showDayAlert = true
+              }
+        
+        
+        //for matchGeometryEffect
+        var animation: Namespace.ID {
+            Namespace().wrappedValue
+           }
         
     }
     
-    //for matchGeometryEffect
-    var animation: Namespace.ID {
-        Namespace().wrappedValue
-       }
+    
     
 }
 

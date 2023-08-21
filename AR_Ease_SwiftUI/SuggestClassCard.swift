@@ -15,11 +15,11 @@ struct SuggestClassCard: View {
             Image("suggestBG")
             
             VStack{
-                HStack(spacing: 185){
+                HStack(spacing: 0){
                     Text("推薦課程").font(.custom("GenSenRoundedTW-B", size:16))
                         .foregroundColor(Color("Black_700"))
                     
-                    //Spacer()
+                    Spacer()
                     
                     Button{
                         
@@ -27,8 +27,9 @@ struct SuggestClassCard: View {
                         Image("LookMorebtn")
                     }
                     
-                }.offset(x:8)
+                }
                     .padding(.bottom, 5.0)
+                    .padding(.horizontal,32.0)
                 
                 VStack(spacing: 15){
                     Image("suggestC1")
