@@ -66,9 +66,9 @@ struct DataFollowView: View {
                                 
                                 Spacer()
                                 HStack(alignment: .bottom){
-                                    Text("連續").font(.custom("GenSenRoundedTW-B", size:16))
-                                    Text("06").font(.custom("GenSenRoundedTW-B", size:24))
-                                    Text("天").font(.custom("GenSenRoundedTW-B", size:16))
+                                    //Text("連續").font(.custom("GenSenRoundedTW-B", size:16))
+                                    Text("0").font(.custom("GenSenRoundedTW-B", size:24)).foregroundColor(Color.white)
+                                    //Text("天").font(.custom("GenSenRoundedTW-B", size:16))
                                 }.padding(.trailing, 15.0).foregroundColor(Color("EaseBlue"))
                                 
                             }.offset(y:10)
@@ -91,7 +91,7 @@ struct DataFollowView: View {
                                     .animation(.easeInOut(duration: 0.2))
                                     CalenderBelowView()//.background(Color("EaseGrey_100"))
                                         .padding(0)
-                                        .offset(y:-20)
+                                        .offset(y:0)
                                 }.background(Color("EaseGrey_100"))
                                 
                             }else{

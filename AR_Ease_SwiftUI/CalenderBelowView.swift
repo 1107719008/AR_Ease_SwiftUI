@@ -13,48 +13,57 @@ struct CalenderBelowView: View {
             
             ScrollView{
                 HStack{
+                    Text("詳細時間").font(.custom("GenSenRoundedTW-B", size:17))
+                        .foregroundColor((Color("Black_800")))
                     Spacer()
                     
                     Button{
                         
                     }label:{
                         Image("FilterIcon")
-                            .padding(.trailing, 30.0)
-                            .offset(y:30)
+                            
+                           
                     }
-                }
+                }.padding(.all, 16.0)
                 
                 VStack(alignment: .leading){
-                    Image("TimeSet1")
+                    //Image("TimeSet1")
+                    Text("今天 17:00").font(.custom("GenSenRoundedTW-B", size:15))
+                        .foregroundColor((Color("Gray656565")))
                     NavigationLink(destination: ActionListDemo()){
                         ZStack{
                             
                             Image("WaistRestCB")
-                            Image("FinishCB").offset(x:160,y:-33)
+                            //Image("FinishCB").offset(x:160,y:-33)
                         }
                     }.navigationTitle("")
                     
                     
-                }.padding(.bottom, 5.0)
+                }.padding(.bottom, 3.0)
                 VStack(alignment: .leading){
                     
-                    Image("TimeSet2")
+                    //Image("TimeSet2")
+                    Text("今天 19:00").font(.custom("GenSenRoundedTW-B", size:15))
+                        .foregroundColor((Color("Gray656565")))
                     
                     ZStack{
                         Image("FreedomCB")
-                        Image("UnfinishCB").offset(x:150,y:-33)
+                        //Image("UnfinishCB").offset(x:150,y:-33)
                     }
                     
-                }.padding(.bottom, 5.0)
+                }.padding(.bottom, 3.0)
                 
                 VStack(alignment: .leading){
-                    Image("TimeSet2")
+                    //Image("TimeSet2")
+                    Text("今天 20:00").font(.custom("GenSenRoundedTW-B", size:15))
+                        .foregroundColor((Color("Gray656565")))
+                    
                     ZStack{
                         Image("FreedomCB")
-                        Image("UnfinishCB").offset(x:150,y:-33)
+                        //Image("UnfinishCB").offset(x:150,y:-33)
                     }
                     
-                }.padding(.bottom, 5.0)
+                }.padding(.bottom, 3.0)
                 
                 
                 
