@@ -12,7 +12,8 @@ class UserMood: ObservableObject{
     //不登入選項
     @Published var isNotLoggedIn = false
     
-    
+    //swap tab
+    @Published var seletionTab = 0
     
     
     

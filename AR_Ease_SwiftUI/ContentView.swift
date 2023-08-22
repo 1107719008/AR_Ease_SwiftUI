@@ -17,6 +17,8 @@ struct ContentView: View {
     //@State var toggleHomePage: Bool = false
     @EnvironmentObject var isNotLogged: UserMood
     
+    @EnvironmentObject var tabSelect: UserMood
+    
     //init the tab bar bg
     init() {
         let appearance = UITabBarAppearance()
@@ -43,7 +45,7 @@ struct ContentView: View {
             NavigationView{
                 HStack{
                     //tab view
-                    TabView(selection: $selection){
+                    TabView(selection: $tabSelect.seletionTab){
                         
                         NavigationView{
                             HomeView()
@@ -60,7 +62,7 @@ struct ContentView: View {
                                     
                                     ToolbarItem(placement: .principal) {
                                         
-                                        Text(selection == 0 ? "Ease" : (selection == 1 ? "記錄追蹤" : "個人設定"))
+                                        Text(tabSelect.seletionTab == 0 ? "Ease" : (tabSelect.seletionTab == 1 ? "記錄追蹤" : "個人設定"))
                                             .font(.custom("GenSenRoundedTW-B", size:28))
                                             .foregroundColor(Color("Black_700"))
                                         
@@ -79,7 +81,7 @@ struct ContentView: View {
                                 .toolbarBackground(.white, for: .navigationBar)
                         }
                         .tabItem {
-                            if selection == 0{
+                            if tabSelect.seletionTab == 0{
                                 Text("")
                                 Image("tab1")
                                 
@@ -125,7 +127,7 @@ struct ContentView: View {
                                 .toolbarBackground(.white, for: .navigationBar)
                         }
                         .tabItem {
-                            if selection == 3{
+                            if tabSelect.seletionTab == 3{
                                 Text("")
                                 Image("tab3")
                             }else{
@@ -136,8 +138,11 @@ struct ContentView: View {
                         
                         
                         
+                        
                         NavigationView{
-                            GamePageView().toolbar{
+                            GamePageView()
+                                .toolbar(.hidden, for: .tabBar)
+                                .toolbar{
 //                                ToolbarItem(placement: .navigationBarLeading){
 //                                    NavigationLink(destination: GamePageView()
 //                                    ){
@@ -171,7 +176,7 @@ struct ContentView: View {
                             
                         }
                         .tabItem{
-                            if selection == 2{
+                            if tabSelect.seletionTab == 2{
                                 Text("")
                                 Image("tab5")
                             }else{
@@ -195,7 +200,7 @@ struct ContentView: View {
                                 
                                 ToolbarItem(placement: .principal) {
                                     
-                                    Text(selection == 0 ? "Ease" : (selection == 1 ? "記錄追蹤" : "個人設定"))
+                                    Text(tabSelect.seletionTab == 0 ? "Ease" : (tabSelect.seletionTab == 1 ? "記錄追蹤" : "個人設定"))
                                         .font(.custom("GenSenRoundedTW-B", size:28))
                                         .foregroundColor(Color("Black_700"))
                                     
@@ -216,7 +221,7 @@ struct ContentView: View {
                             
                         }
                         .tabItem{
-                            if selection == 1{
+                            if tabSelect.seletionTab == 1{
                                 Text("")
                                 Image("tab7")
                             }else{
@@ -239,7 +244,7 @@ struct ContentView: View {
                                 
                                 ToolbarItem(placement: .principal) {
                                     
-                                    Text(selection == 0 ? "Ease" : (selection == 1 ? "記錄追蹤" : "個人設定"))
+                                    Text(tabSelect.seletionTab == 0 ? "Ease" : (tabSelect.seletionTab == 1 ? "記錄追蹤" : "個人設定"))
                                         .font(.custom("GenSenRoundedTW-B", size:28))
                                         .foregroundColor(Color("Black_700"))
                                     
@@ -260,7 +265,7 @@ struct ContentView: View {
                             
                         }
                         .tabItem{
-                            if selection == 4{
+                            if tabSelect.seletionTab == 4{
                                 Text("")
                                 Image("tab9")
                             }else{

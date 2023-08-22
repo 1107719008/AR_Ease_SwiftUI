@@ -8,14 +8,52 @@
 import SwiftUI
 
 struct GamePageView: View {
+    
+    @EnvironmentObject var tabSelect: UserMood
+    
     var body: some View {
-        Image("GamePageDemo")
-            .padding(.top, 70)
+        
+        
+            
+        VStack{
+          
+            HStack{
+                Button(action: {
+                    // 所需執行的內容
+                    tabSelect.seletionTab = 0
+                    
+                }) {
+                    // 按鈕介面外觀設置
+                    Image("BackIcon3")
+                    
+                }
+                .padding([.leading, .bottom, .trailing],16)
+                    .padding(.top,35)
+                    
+                    
+            
+                Spacer()
+                
+            }
+            
+            
+            Image("GamePageDemo")
+                
+            
+            
+            
+            
+        }
+            
+       
+        
+        
     }
+        
 }
 
 struct GamePageView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        GamePageView()
     }
 }

@@ -15,22 +15,35 @@ struct FinishResultView: View {
         ZStack{
             
             Image("finishResultDemo")
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing:-10){
+                    Image("card2")
+                    Image("card1")
+                    Image("card3")
+                    Image("card4")
+                    Image("card5")
+                }.frame(width: 1000)
+                
+            }
             HStack{
+                Spacer()
+                Button(action: {
+                    
+                    
+                    
+                }, label: {
+                    Image("addTo")
+                    
+                })
+                
+                Spacer()
                 
                 Button(action: {
                     
                     
                     
                 }, label: {
-                    Image("AddTo")
-                    
-                })
-                Button(action: {
-                    
-                    
-                    
-                }, label: {
-                    Image("again")
+                    Image("againBtn")
                     
                 })
                 Button(action: {
@@ -41,15 +54,15 @@ struct FinishResultView: View {
                     Image("BackToHome")
                     
                 })
+                Spacer()
                 
                 
                 
                 
-                
-            }.offset(y:124)
+            }.offset(y:135)
             
         }.rotationEffect(Angle(degrees: 90))
-            .offset(y:-15)
+            .offset(y:-25)
             
         
     }
