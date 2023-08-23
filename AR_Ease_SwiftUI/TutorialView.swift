@@ -10,7 +10,11 @@ import SwiftUI
 import AVFoundation
 
 
+
+
+
 struct TutorialView: View {
+    
     //for full screen func
     @Environment(\.presentationMode) var presentationMode
     
@@ -107,6 +111,8 @@ struct TutorialView: View {
                 ZStack{
                     ViewControllerCameraView()
                         .edgesIgnoringSafeArea(.all)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                   
                         
 
                     PreparationView(startTutorial: $isPrepareTimeUp).navigationBarHidden(true).edgesIgnoringSafeArea(.all)

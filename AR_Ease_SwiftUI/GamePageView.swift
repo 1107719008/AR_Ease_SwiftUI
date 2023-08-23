@@ -37,8 +37,8 @@ struct GamePageView: View {
             }
             
             
-            Image("GamePageDemo")
-                
+            //Image("GamePageDemo")
+              Image("Bpose")
             
             
             

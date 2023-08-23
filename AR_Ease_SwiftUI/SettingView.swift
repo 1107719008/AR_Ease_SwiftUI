@@ -19,6 +19,8 @@ struct SettingView: View {
     
     @State var isSelect: String = "Easy"
     
+    @EnvironmentObject var whichDifficulty: UserMood//0,1,2
+    
     init(){
         healthStore = HealthStore()
         UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(named: "EaseBlue")
@@ -44,34 +46,69 @@ struct SettingView: View {
                 }
             }
             HStack{
-                Image("setState").padding(.bottom,21)
+                Image("setState").padding(.bottom,20)
             }
             
-            VStack{
+            VStack(alignment: .leading){
                 HStack{
                     Text("難易度調整").font(.custom("GenSenRoundedTW-B", size:15))
-                        .foregroundColor(Color("EaseBlue"))
-                        .padding(.leading, 25.0)
+                        .foregroundColor(Color("Gray_300"))
+                        .padding(.leading, 16.0)
                     Spacer()
                 }
+                
                 //muti toggle btn
-                Picker("",selection:$isSelect){
-                    Text("入門").tag("Easy").font(.custom("GenSenRoundedTW-B",size: 13))
-                    Text("基礎").tag("Basic").font(.custom("GenSenRoundedTW-B",size: 13))
-                    Text("進階").tag("Difficult").font(.custom("GenSenRoundedTW-B",size: 13))
-                }
-                .pickerStyle(.segmented)
-                .padding(.horizontal,24)
-                .padding(.top,5)
+//                Picker("",selection:$isSelect){
+//                    Text("入門").tag("Easy").font(.custom("GenSenRoundedTW-B",size: 13))
+//                    Text("基礎").tag("Basic").font(.custom("GenSenRoundedTW-B",size: 13))
+//                    Text("進階").tag("Difficult").font(.custom("GenSenRoundedTW-B",size: 13))
+//                }
+//                .pickerStyle(.segmented)
+//                .padding(.horizontal,24)
+//                .padding(.top,5)
                 //.colorMultiply(Color("EaseBlue"))
                 
                 
+                HStack{
+                    Button(action: {
+                        whichDifficulty.difficulty = 0
+                    }, label: {
+                        if whichDifficulty.difficulty == 0{
+                            Image("easy_t")
+                        }else{
+                            Image("easy_f")
+                        }
+                        
+                    })
+                    Button(action: {
+                        whichDifficulty.difficulty = 1
+                    }, label: {
+                        if whichDifficulty.difficulty == 1{
+                            Image("basic_t")
+                        }else{
+                            Image("basic_f")
+                        }
+                       
+                        
+                    })
+                    Button(action: {
+                        whichDifficulty.difficulty = 2
+                    }, label: {
+                        if whichDifficulty.difficulty == 2{
+                            Image("advance_t")
+                        }else{
+                            Image("advance_f")
+                        }
+                        
+                    })
+                }.padding(.horizontal, 32.0)
+                    
+                
+                
             }
+            
             VStack{
-//                HStack{
-//                    Text("一般設定").padding(.leading, 25.0)
-//                    Spacer()
-//                }
+                
                 
                 //List & toggle btn
                 NavigationView{
@@ -138,14 +175,15 @@ struct SettingView: View {
                         }
                     header: {
                         Text("一般設定").font(.custom("GenSenRoundedTW-B", size:15))
-                            .foregroundColor(Color("EaseBlue"))
-                            
+                            .foregroundColor(Color("Gray_300"))
+                            .offset(x:-14)
+                        
                     }
                     }//list end
                     .listStyle(InsetGroupedListStyle())
                     .scrollContentBackground(.hidden)
                     //.offset(x:-12)
-                    .frame(width: 415)
+                    .frame(width: 392)
                     
                     
                 }
@@ -163,5 +201,6 @@ struct SettingView: View {
 struct SettingView_Previews: PreviewProvider {
     static var previews: some View {
         SettingView()
+            .environmentObject(UserMood())
     }
 }

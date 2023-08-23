@@ -15,7 +15,8 @@ class UserMood: ObservableObject{
     //swap tab
     @Published var seletionTab = 0
     
-    
+    //swap difficulty
+    @Published var difficulty = 0
     
     
 }

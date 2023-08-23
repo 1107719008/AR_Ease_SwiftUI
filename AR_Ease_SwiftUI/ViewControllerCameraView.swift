@@ -53,6 +53,8 @@ class ViewController: UIViewController {
         
         //setHintUICircle()
         
+        
+        
     }
 
     //hints UI
@@ -72,9 +74,12 @@ class ViewController: UIViewController {
     private func setupVideoPreview(){
         videoCapture.startCaptureSession()
         previewLayer = AVCaptureVideoPreviewLayer(session: videoCapture.captureSession)
-        previewLayer?.frame = UIScreen.main.bounds
+        //previewLayer?.frame = UIScreen.main.bounds
+        previewLayer?.frame = CGRect(x:0,y:0,width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
         previewLayer?.videoGravity = .resizeAspectFill//set full screen
         
+        
+        //previewLayer?.connection?.videoOrientation = .landscapeRight
         
         
         //add video frame
