@@ -67,8 +67,8 @@ struct GameFinishView: View {
                         }.offset(x:-32,y:150)
                     }
                     
-                }.rotationEffect(Angle(degrees: 90))
-                    .offset(y:-30)
+                }
+                    
                 
                 
             }

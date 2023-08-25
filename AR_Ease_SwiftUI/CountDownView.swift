@@ -24,69 +24,73 @@ struct CountDownView: View {
     var timesUpTime : Int = 30
     
     var body: some View {
-        VStack(alignment: .trailing){
-           
-            
-       
-            
-            
-            
-            HStack{
-//                Spacer()
-                ZStack{
-                    Image("clockBG70").resizable().frame(width: 72,height: 72)
-                    //counter
-                    Clock(counter: counter, countTo: countTo)
-                    
-                    Circle().fill(Color.clear)
-                        .frame(width: 60,height: 60)
-                        .overlay(Circle().stroke(Color.gray.opacity(0.2),lineWidth: 6))
-                    
-                    Circle()
-                        .fill(Color.clear)
-                        .frame(width: 60,height: 60)
-                        .overlay(
-                            Circle().trim(from:0, to: progessBar())
-                                .stroke(
-                                    style: StrokeStyle(
-                                        lineWidth: 6,
-                                        lineCap: .round,
-                                        lineJoin: .round
-                                    )
-                                )
-                                .foregroundColor(
-                                    (timeAlmostUp ? (Color("EaseYellow")) : completed() ? Color.green : (Color("EaseBlue")))
-                                ).animation(
-                                    .easeInOut(duration: 0.2)
-                                )
-                        ).rotationEffect(Angle(degrees: -90))
-                    
-                    
-                }
-            }
+        
+        HStack{
             
             Spacer()
             
-            Image( timeAlmostUp ? "preview2" : "preview1")
-            
-            
-        }
-        
-        .onReceive(timer){ time in
-            if(self.counter < self.countTo){
-                self.counter += 1
+            VStack(alignment: .trailing){
+                
+                
+                HStack{
+                    //                Spacer()
+                    ZStack{
+                        Image("clockBG70").resizable().frame(width: 72,height: 72)
+                        //counter
+                        Clock(counter: counter, countTo: countTo)
+                        
+                        Circle().fill(Color.clear)
+                            .frame(width: 60,height: 60)
+                            .overlay(Circle().stroke(Color.gray.opacity(0.2),lineWidth: 6))
+                        
+                        Circle()
+                            .fill(Color.clear)
+                            .frame(width: 60,height: 60)
+                            .overlay(
+                                Circle().trim(from:0, to: progessBar())
+                                    .stroke(
+                                        style: StrokeStyle(
+                                            lineWidth: 6,
+                                            lineCap: .round,
+                                            lineJoin: .round
+                                        )
+                                    )
+                                    .foregroundColor(
+                                        (timeAlmostUp ? (Color("EaseYellow")) : completed() ? Color.green : (Color("EaseBlue")))
+                                    ).animation(
+                                        .easeInOut(duration: 0.2)
+                                    )
+                            ).rotationEffect(Angle(degrees: -90))
+                        
+                        
+                    }
+                }
+                
+                Spacer()
+                
+                Image( timeAlmostUp ? "preview2" : "preview1")
+                
                 
             }
-            if counter >= 25 {
-                timeAlmostUp = true
-                
-               
-            }else{
-                timeAlmostUp = false
+            .onReceive(timer){ time in
+                if(self.counter < self.countTo){
+                    self.counter += 1
+                    
+                }
+                if counter >= 25 {
+                    timeAlmostUp = true
+                    
+                    
+                }else{
+                    timeAlmostUp = false
+                }
+                if counter == timesUpTime{
+                    isTimeUp = true
+                }
             }
-            if counter == timesUpTime{
-                isTimeUp = true
-            }
+            
+           
+            
         }
         
     }

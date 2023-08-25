@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct AR_Ease_SwiftUIApp: App {
     @StateObject var bodyChosen = BodyPartSharedState()
-    @StateObject var isNotLoggedIn = UserMood()
+    @StateObject var isNotLoggedIn = UserMood() //user states
     
     var body: some Scene {
         WindowGroup {

@@ -11,6 +11,9 @@ struct FinishResultView: View {
     
     @Environment(\.presentationMode) var presentation
     
+    @EnvironmentObject var tabSelect: UserMood
+    
+    
     var body: some View {
         ZStack{
             
@@ -28,7 +31,7 @@ struct FinishResultView: View {
             HStack{
                 Spacer()
                 Button(action: {
-                    
+                    tabSelect.seletionTab = 3
                     
                     
                 }, label: {
@@ -61,8 +64,8 @@ struct FinishResultView: View {
                 
             }.offset(y:135)
             
-        }.rotationEffect(Angle(degrees: 90))
-            .offset(y:-25)
+        }//.rotationEffect(Angle(degrees: 90))
+           // .offset(y:-25)
             
         
     }

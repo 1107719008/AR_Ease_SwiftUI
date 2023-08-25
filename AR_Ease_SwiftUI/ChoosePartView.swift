@@ -601,7 +601,7 @@ struct ChoosePartView: View {
                                     }.offset(x:-15)
                                 }
                                 
-                            }.navigationBarBackButtonHidden(true)
+                            }
                             
                         }
                         .padding(.trailing,16)
@@ -614,7 +614,7 @@ struct ChoosePartView: View {
         }
         .onAppear{
             sortTheBodyParts()
-            UITabBar.appearance().isHidden = false
+            //UITabBar.appearance().isHidden = false
         }
         
         

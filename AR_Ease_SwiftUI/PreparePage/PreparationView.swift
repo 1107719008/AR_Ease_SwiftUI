@@ -13,8 +13,9 @@ struct PreparationView: View {
     @State var prepareState: Int = 0
     
     @Binding var startTutorial: Bool
+    @Binding var isViewLandscape: Bool
     
-    
+   
     
     var body: some View {
         
@@ -33,18 +34,18 @@ struct PreparationView: View {
                 case 2:
                     Image("step3_1")
                 case 3:
-                    Text("")
+                    Spacer()
                 default:
                     Text("")
                 }
                 
             }
             
-            VStack{
+            HStack{
                 
-                HStack{
+                VStack{
                     
-                    Spacer()
+                   
                     if prepareState == 3{
                         
                         Button(action: {
@@ -73,12 +74,34 @@ struct PreparationView: View {
                         
                         
                     }
-                }.padding(.trailing,24.0).offset(y:50)
+                    
+                    Spacer()
+                    
+                }.padding([.top, .leading], 24.0)
                     
                 
                 Spacer()
                 
-                HStack{
+                VStack{
+                    
+                    //step states 第n步
+                    switch prepareState {
+                    case 0:
+                        Image("st1Btn")
+                    case 1:
+                        Image("st2Btn")
+                    case 2:
+                        Text("")
+                        
+                    case 3:
+                        ClockCountView(isTimeUp: $startTutorial)
+                        
+                    default:
+                        Text("")
+                    }
+                    
+                    
+                    Spacer()
                     
                     //next step btn
                     Button{
@@ -86,6 +109,10 @@ struct PreparationView: View {
                             if prepareState == 3{
                                 prepareState = 0
                             }else{
+                                
+                                if prepareState == 2{
+                                    isViewLandscape = true
+                                }
                                 prepareState += 1
                             }
                         }
@@ -108,32 +135,15 @@ struct PreparationView: View {
                         //.foregroundColor((Color("Black_800")))
                     }
                     
-                    Spacer()
-                    
-                    
-                    //step states 第n步
-                    switch prepareState {
-                    case 0:
-                        Image("st1Btn")
-                    case 1:
-                        Image("st2Btn")
-                    case 2:
-                        Text("")
-                    case 3:
-                        ClockCountView(isTimeUp: $startTutorial).rotationEffect(.degrees(90))
-                    default:
-                        Text("")
-                    }
                     
                     
                     
-                    
-                }.padding(24)
-            }
+                }.padding(.horizontal,24)
+                    .padding(.vertical, 18)
+            }.padding(.trailing)
             
         }.toolbar(.hidden, for: .tabBar)
-            .offset(y:0)
-            .frame(width: 392,height: 852)
+            //.frame(width: 392,height: 852)
             
         
             
@@ -144,6 +154,6 @@ struct PreparationView: View {
 
 struct PreparationView_Previews: PreviewProvider {
     static var previews: some View {
-        PreparationView(startTutorial: .constant(false))
+        PreparationView(startTutorial: .constant(false), isViewLandscape: .constant(false))
     }
 }

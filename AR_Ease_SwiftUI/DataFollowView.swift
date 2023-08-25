@@ -16,19 +16,27 @@ struct DataFollowView: View {
     @State var currentDate: Date = Date()
     @State var whichView = 0
     @State var showDayAlert = false
+    @State var dayAlertShowed = false
+    
+   
     
     var body: some View {
         //two mode - CalendarView/ChartView
         
             ZStack{//for change 追蹤與日曆
                
-              
-                Text("HI Alert").alert(isPresented: $showDayAlert) {
-                    Alert(title: Text("🎉恭喜🎉")
-                        .font(.custom("GenSenRoundedTW-B", size:20))
-                        .foregroundColor((Color("Black_700")))
-                          ,message: Text("這個月已連續運動\(String(usedDays))天!").foregroundColor((Color("Black_800")))
-                    )
+                if !dayAlertShowed {
+                    Text("HI Alert").alert(isPresented: $showDayAlert) {
+                        Alert(title: Text("🎉恭喜🎉")
+                            .font(.custom("GenSenRoundedTW-B", size:20))
+                            .foregroundColor((Color("Black_700")))
+                              ,message: Text("這個月已連續運動\(String(usedDays))天!").foregroundColor((Color("Black_800")))
+                        )
+                    }.onDisappear(){
+                        dayAlertShowed = true
+                    }
+                }else{
+                    
                 }
                     
              
@@ -134,6 +142,11 @@ struct DataFollowView: View {
         var animation: Namespace.ID {
             Namespace().wrappedValue
            }
+        
+        
+        
+        
+        
         
     }
     
